@@ -60,8 +60,20 @@ export const HONEST =
   "THIS IS: an advisory coherence reviewer (AZC-WP-0.1). Primary triad/claim+score versus an alternate independent path. Receipts are PASS / FLAG / NEUTRALIZE / REFUSE. THIS IS NOT: AZ-CLCE (R/D/P inconsistency, not intent), not AKM-TRIAD-1.0 fabric memory, not a truth verdict, not a citation inventor, not a history rewrite, not publish-as-truth. Confidence is not truth. Never invent evidence. Author Aziel Eliab only.";
 
 export const PEERS = Object.freeze({
-  az_clce: { github: "https://github.com/AzielEliab/az-clce", note: "R/D/P inconsistency, not intent. Do not merge." },
-  akm_triad: { spec: "AKM-TRIAD-1.0", note: "LIVE fabric memory on aziel-runtime. Not a Softwares slug. Do not merge." },
+  aziel_runtime: {
+    role: "catalog + FragGate door",
+    github: "https://github.com/AzielEliab/aziel-runtime",
+    paths: ["/v1/fraggate/list", "/v1/fraggate/describe", "/v1/fraggate/call", "/v1/software", "/mcp"],
+    merge: false,
+  },
+  az_clce: { slug: "azclce", github: "https://github.com/AzielEliab/az-clce", note: "Peer scorer. R/D/P inconsistency, not intent. Do not merge." },
+  akm_triad: { spec: "AKM-TRIAD-1.0", note: "LIVE fabric memory on aziel-runtime. Fabric neighbor — cite only. Not a Softwares slug. Do not merge." },
+  azinterface: { slug: "azinterface", github: "https://github.com/AzielEliab/azinterface", note: "Custodial OE. Do not merge." },
+  hubs: {
+    azieleliab: "https://www.azieleliab.com/",
+    azielcorpuslibrary: "https://www.azielcorpuslibrary.net/",
+    godlock: "https://godlock.uk/",
+  },
 });
 
 const STUB_MESSAGES = {

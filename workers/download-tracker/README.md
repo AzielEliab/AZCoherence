@@ -2,7 +2,7 @@
 
 Isolated Worker `azcoherence-download-tracker`. Project `azcoherence`.
 v0.1.0 serves the coherence reviewer (AZC-WP-0.1).
-KV namespace `AZCOHERENCE_DOWNLOADS` bound as `DOWNLOADS` (placeholder id until first deploy).
+KV namespace `AZCOHERENCE_DOWNLOADS` bound as `DOWNLOADS` (`36ae4779a4e04502b8ca8043349a0160`).
 Does **not** 302 to GitHub on `/download`. Serves gzip via `ASSETS.fetch`,
 `Cache-Control: private, no-store`.
 
@@ -17,6 +17,7 @@ GET `/v1/fraggate/list`, GET `/v1/fraggate/describe`, POST `/v1/fraggate/call` P
 GET `/mcp` returns dual-surface MCP docs + FragGate pointer (`slug=azcoherence`). Does not increment.
 POST `/mcp` is JSON-RPC MCP-over-HTTP (`initialize`, `tools/list`, `tools/call`) doubling catalog labels health/skill/doctor/verify/review_triad/alternate_score/coherence_check/neutralize_hallucination.
 UI Review triad / Alternate score / Coherence check / Neutralize / Verify / Health / Skill / Doctor map to catalog LIVE_OPS.
-GET `/cite.json`, `/sitemap.xml`, `/robots.txt`, `/llms.txt` are SEO / cite surfaces. Do not increment downloads.
+GET `/cite.json`, `/sitemap.xml`, `/robots.txt`, `/llms.txt` are SEO / cite surfaces (suite peers + FragGate door + dual-surface law). Do not increment downloads.
+Human UI shows Softwares-style peer links (AZ-CLCE, AKM-TRIAD cite-only, AZInterface, aziel-runtime, hubs) and the runtime FragGate call path (`POST /v1/fraggate/call` PROXY). Dual surface: agent MCP + human Worker UI + `/download`.
 
 Host: https://azcoherence-download-tracker.vibelock.workers.dev

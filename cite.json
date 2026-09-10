@@ -1,0 +1,121 @@
+{
+  "author": "Aziel Eliab",
+  "title": "AZCoherence",
+  "version": "0.1.0",
+  "spec": "AZC-WP-0.1",
+  "class": "Plain",
+  "slug": "azcoherence",
+  "placement": "scoring-review",
+  "door": "fraggate",
+  "homepage": "https://azcoherence-download-tracker.vibelock.workers.dev/",
+  "github": "https://github.com/AzielEliab/AZCoherence",
+  "download": "https://azcoherence-download-tracker.vibelock.workers.dev/download",
+  "install": "https://azcoherence-download-tracker.vibelock.workers.dev/install.sh",
+  "openapi": "https://azcoherence-download-tracker.vibelock.workers.dev/openapi.json",
+  "skill": "https://azcoherence-download-tracker.vibelock.workers.dev/v1/skill",
+  "mcp": "https://azcoherence-download-tracker.vibelock.workers.dev/mcp",
+  "catalog": "https://aziel-runtime.vibelock.workers.dev/",
+  "catalog_mcp": "https://aziel-runtime.vibelock.workers.dev/mcp",
+  "catalog_product": "https://aziel-runtime.vibelock.workers.dev/p/azcoherence/",
+  "license": "Apache-2.0",
+  "license_url": "https://www.apache.org/licenses/LICENSE-2.0",
+  "one_line": "AZCoherence is Aziel Eliab software: alternate-triad double-check to neutralize AI hallucination in scores (AZC-WP-0.1). Confidence is not truth. Never invent evidence. Apache-2.0.",
+  "how_to_cite": "Eliab, Aziel. (2026). AZCoherence 0.1.0 [Software]. Apache-2.0. https://github.com/AzielEliab/AZCoherence · https://azcoherence-download-tracker.vibelock.workers.dev/",
+  "apa": "Eliab, A. (2026). AZCoherence (Version 0.1.0) [Computer software]. https://azcoherence-download-tracker.vibelock.workers.dev/",
+  "bibtex": "@software{eliab_azcoherence_2026, author = {Eliab, Aziel}, title = {AZCoherence}, version = {0.1.0}, year = {2026}, license = {Apache-2.0}, url = {https://azcoherence-download-tracker.vibelock.workers.dev/}, publisher = {GitHub}, howpublished = {\\url{https://github.com/AzielEliab/AZCoherence}}}",
+  "zenodo_status": "placeholder_no_doi_invented",
+  "software_deposit_needed": true,
+  "note": "No DOI is invented here. Cite GitHub and this Worker. Identity is Aziel Eliab only. Forks welcome. Peer of AZ-CLCE (azclce), not merged. Not AKM-TRIAD. FragGate is THE single door.",
+  "identity": "Aziel Eliab only",
+  "forks": "welcome and always allowed",
+  "dual_surface": {
+    "agent_mcp": "https://azcoherence-download-tracker.vibelock.workers.dev/mcp",
+    "catalog_mcp": "https://aziel-runtime.vibelock.workers.dev/mcp",
+    "catalog_fraggate_call": "https://aziel-runtime.vibelock.workers.dev/v1/fraggate/call",
+    "catalog_fraggate_list": "https://aziel-runtime.vibelock.workers.dev/v1/fraggate/list",
+    "catalog_software": "https://aziel-runtime.vibelock.workers.dev/v1/software",
+    "human_worker_ui": "https://azcoherence-download-tracker.vibelock.workers.dev/",
+    "download": "https://azcoherence-download-tracker.vibelock.workers.dev/download",
+    "law": "Agent MCP + human Worker UI + /download. FragGate is THE single door. Do not gut either surface."
+  },
+  "fraggate": {
+    "kernel": "https://github.com/AzielEliab/fraggate",
+    "runtime": "https://github.com/AzielEliab/aziel-runtime",
+    "list": "https://aziel-runtime.vibelock.workers.dev/v1/fraggate/list",
+    "describe": "https://aziel-runtime.vibelock.workers.dev/v1/fraggate/describe?slug=azcoherence",
+    "call": "https://aziel-runtime.vibelock.workers.dev/v1/fraggate/call",
+    "software": "https://aziel-runtime.vibelock.workers.dev/v1/software",
+    "mcp": "https://aziel-runtime.vibelock.workers.dev/mcp",
+    "worker_proxy": {
+      "list": "https://azcoherence-download-tracker.vibelock.workers.dev/v1/fraggate/list",
+      "describe": "https://azcoherence-download-tracker.vibelock.workers.dev/v1/fraggate/describe",
+      "call": "https://azcoherence-download-tracker.vibelock.workers.dev/v1/fraggate/call"
+    },
+    "slug": "azcoherence",
+    "note": "FragGate is THE single door. Worker /v1/fraggate/* PROXY via AZIEL_RUNTIME."
+  },
+  "peers": {
+    "aziel_runtime": {
+      "role": "catalog + FragGate door",
+      "github": "https://github.com/AzielEliab/aziel-runtime",
+      "homepage": "https://aziel-runtime.vibelock.workers.dev/",
+      "paths": [
+        "/v1/fraggate/list",
+        "/v1/fraggate/describe",
+        "/v1/fraggate/call",
+        "/v1/software",
+        "/mcp"
+      ],
+      "merge": false
+    },
+    "azclce": {
+      "role": "peer scorer — separate product",
+      "slug": "azclce",
+      "name": "AZ-CLCE",
+      "github": "https://github.com/AzielEliab/az-clce",
+      "homepage": "https://azclce-download-tracker.vibelock.workers.dev/",
+      "note": "R/D/P inconsistency, not intent. Peer of AZCoherence. Do not merge.",
+      "merge": false
+    },
+    "akm_triad": {
+      "role": "fabric neighbor — cite only",
+      "spec": "AKM-TRIAD-1.0",
+      "note": "LIVE fabric memory on aziel-runtime. Not a Softwares slug. Posterior ≠ truth. Do not merge.",
+      "merge": false,
+      "software_tab": false
+    },
+    "azinterface": {
+      "role": "custodial operating environment",
+      "slug": "azinterface",
+      "name": "AZInterface",
+      "github": "https://github.com/AzielEliab/azinterface",
+      "homepage": "https://azinterface-download-tracker.vibelock.workers.dev/",
+      "note": "Custodial OE / page cycles. Pair custody. Not a merge.",
+      "merge": false
+    },
+    "hubs": {
+      "azieleliab": "https://www.azieleliab.com/",
+      "azielcorpuslibrary": "https://www.azielcorpuslibrary.net/",
+      "godlock": "https://godlock.uk/"
+    }
+  },
+  "clients": [
+    "ChatGPT (GPT Actions / OpenAI)",
+    "Grok (xAI)",
+    "Venice",
+    "Claude (Anthropic)",
+    "Cursor (MCP)",
+    "Glama (MCP)",
+    "Perplexity",
+    "Microsoft Copilot / Bing",
+    "Google Gemini / Vertex",
+    "Mistral",
+    "Meta AI",
+    "Apple Intelligence surfaces",
+    "Amazon Q tooling",
+    "DuckAssist",
+    "You.com",
+    "Cohere",
+    "other MCP/OpenAPI-capable assistants"
+  ]
+}

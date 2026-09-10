@@ -32,8 +32,9 @@ def test_wrangler_binds_aziel_runtime() -> None:
     assert "/v1/*" in WRANGLER
     assert 'name = "azcoherence-download-tracker"' in WRANGLER
     assert 'account_id = "ac575a9b822bea2bed97d0ab73aed238"' in WRANGLER
-    assert "00000000000000000000000000000000" in WRANGLER
-    assert "First-deploy" in WRANGLER or "first deploy" in WRANGLER.lower()
+    assert "36ae4779a4e04502b8ca8043349a0160" in WRANGLER
+    assert "00000000000000000000000000000000" not in WRANGLER
+    assert "AZCOHERENCE_DOWNLOADS" in WRANGLER
 
 
 def test_door_classifies_list_describe_call() -> None:
