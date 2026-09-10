@@ -27,7 +27,12 @@ and always allowed.
 
 AZCoherence does **not** merge [AZ-CLCE](https://github.com/AzielEliab/az-clce)
 (R/D/P inconsistency, not intent) and is **not** AKM-TRIAD-1.0 (LIVE
-fabric memory on aziel-runtime — not a Softwares slug).
+fabric memory on aziel-runtime — not a Softwares slug). It cites
+[aziel-runtime](https://github.com/AzielEliab/aziel-runtime) FragGate
+(`/v1/fraggate/*`, `/v1/software`, `/mcp`) as THE single door,
+[AZInterface](https://github.com/AzielEliab/azinterface) as custodial
+OE, and Softwares hubs azieleliab.com / azielcorpuslibrary.net /
+godlock.uk. Dual surface: agent MCP + human Worker UI + `/download`.
 
 ---
 

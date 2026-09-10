@@ -93,11 +93,23 @@ Catalog MCP: \`POST https://aziel-runtime.vibelock.workers.dev/mcp\` (FragGate s
 
 Catalog aliases under \`/p/azcoherence/…\` when listed.
 
-AZ-CLCE (peer, do not merge): \`https://github.com/AzielEliab/az-clce\`
+AZ-CLCE (peer scorer, do not merge): \`https://github.com/AzielEliab/az-clce\` · Worker \`https://azclce-download-tracker.vibelock.workers.dev/\`
 
-AKM-TRIAD-1.0 is LIVE fabric memory on aziel-runtime — not a Softwares slug.
+AKM-TRIAD-1.0 is LIVE fabric memory on aziel-runtime — cite as neighbor, not a Softwares slug. Do not merge.
+
+AZInterface (custodial OE): \`https://github.com/AzielEliab/azinterface\` · Worker \`https://azinterface-download-tracker.vibelock.workers.dev/\`
 
 FragGate kernel: \`https://github.com/AzielEliab/fraggate\`
+
+## Cross-map (do not merge)
+
+- **aziel-runtime FragGate** — THE single door. \`GET /v1/fraggate/list\`, \`GET /v1/fraggate/describe?slug=azcoherence\`, \`POST /v1/fraggate/call\` \`{slug:azcoherence,op,payload}\`, \`GET /v1/software\`, \`POST /mcp\`. Host: \`https://aziel-runtime.vibelock.workers.dev\`. This Worker \`/v1/fraggate/*\` PROXY via AZIEL_RUNTIME.
+- **AZ-CLCE / azclce** — peer scorer, separate product. R/D/P inconsistency, not intent.
+- **AKM-TRIAD-1.0** — fabric neighbor only. Posterior ≠ truth. Not a Softwares slug.
+- **AZInterface** — custodial operating environment (page cycles / pair custody).
+- **Softwares hubs** — https://www.azieleliab.com/ · https://www.azielcorpuslibrary.net/ · https://godlock.uk/
+- **Dual surface** — agent MCP + human Worker UI + \`/download\`. Do not gut either surface.
+- Machine cites: this Worker \`/cite.json\` and \`/llms.txt\`.
 
 ## How to call (Mozilla/5.0)
 
@@ -108,6 +120,9 @@ curl -s -A 'Mozilla/5.0' -X POST https://azcoherence-download-tracker.vibelock.w
   -d '{"claim":"login succeeds","primary":{"score":0.91,"path":"primary","evidence":["operator cite A"]},"alternate":{"score":0.88,"path":"independent","evidence":["operator cite B"]}}'
 curl -s -A 'Mozilla/5.0' https://azcoherence-download-tracker.vibelock.workers.dev/v1/skill
 curl -s -A 'Mozilla/5.0' https://azcoherence-download-tracker.vibelock.workers.dev/v1/mesh
+curl -s -A 'Mozilla/5.0' -X POST https://aziel-runtime.vibelock.workers.dev/v1/fraggate/call \\
+  -H 'content-type: application/json' \\
+  -d '{"slug":"azcoherence","op":"health","payload":{}}'
 \`\`\`
 
 FragGate LIVE_OPS (slug \`azcoherence\`): health, skill, doctor, verify, review_triad, alternate_score, coherence_check, neutralize_hallucination.

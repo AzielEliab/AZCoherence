@@ -9,9 +9,36 @@ const GITHUB_REPO = "https://github.com/AzielEliab/AZCoherence";
 const GITHUB_LATEST = "https://github.com/AzielEliab/AZCoherence/releases/latest";
 const CATALOG = "https://aziel-runtime.vibelock.workers.dev/";
 const CATALOG_PRODUCT = "https://aziel-runtime.vibelock.workers.dev/p/azcoherence/";
+const FRAGGATE_LIST = "https://aziel-runtime.vibelock.workers.dev/v1/fraggate/list";
+const FRAGGATE_DESCRIBE = "https://aziel-runtime.vibelock.workers.dev/v1/fraggate/describe?slug=azcoherence";
+const FRAGGATE_CALL = "https://aziel-runtime.vibelock.workers.dev/v1/fraggate/call";
+const SOFTWARE_TAB = "https://aziel-runtime.vibelock.workers.dev/v1/software";
 const AZCLCE_HOST = "https://azclce-download-tracker.vibelock.workers.dev";
+const AZINTERFACE_HOST = "https://azinterface-download-tracker.vibelock.workers.dev";
 const DECISIONGATE_HOST = "https://decisiongate-download-tracker.vibelock.workers.dev";
+const HUB_AZIELELIAB = "https://www.azieleliab.com/";
+const HUB_LIBRARY = "https://www.azielcorpuslibrary.net/";
+const HUB_GODLOCK = "https://godlock.uk/";
 const LICENSE = "https://www.apache.org/licenses/LICENSE-2.0";
+const FULL_CLIENTS = [
+  "ChatGPT (GPT Actions / OpenAI)",
+  "Grok (xAI)",
+  "Venice",
+  "Claude (Anthropic)",
+  "Cursor (MCP)",
+  "Glama (MCP)",
+  "Perplexity",
+  "Microsoft Copilot / Bing",
+  "Google Gemini / Vertex",
+  "Mistral",
+  "Meta AI",
+  "Apple Intelligence surfaces",
+  "Amazon Q tooling",
+  "DuckAssist",
+  "You.com",
+  "Cohere",
+  "other MCP/OpenAPI-capable assistants",
+];
 const VERSION = "0.1.0";
 const AUTHOR = "Aziel Eliab";
 const TITLE = "AZCoherence — Aziel Eliab";
@@ -46,6 +73,11 @@ export function citePayload() {
     author: AUTHOR,
     title: "AZCoherence",
     version: VERSION,
+    spec: "AZC-WP-0.1",
+    class: "Plain",
+    slug: "azcoherence",
+    placement: "scoring-review",
+    door: "fraggate",
     homepage: HOST + "/",
     github: GITHUB_REPO,
     download: HOST + "/download",
@@ -65,9 +97,75 @@ export function citePayload() {
       "@software{eliab_azcoherence_2026, author = {Eliab, Aziel}, title = {AZCoherence}, version = {0.1.0}, year = {2026}, license = {Apache-2.0}, url = {https://azcoherence-download-tracker.vibelock.workers.dev/}, publisher = {GitHub}, howpublished = {\\url{https://github.com/AzielEliab/AZCoherence}}}",
     zenodo_status: "placeholder_no_doi_invented",
     software_deposit_needed: true,
-    note: "No DOI is invented here. Cite GitHub and this Worker. Identity is Aziel Eliab only. Forks welcome.",
+    note: "No DOI is invented here. Cite GitHub and this Worker. Identity is Aziel Eliab only. Forks welcome. Peer of AZ-CLCE (azclce), not merged. Not AKM-TRIAD. FragGate is THE single door.",
     identity: "Aziel Eliab only",
     forks: "welcome and always allowed",
+    dual_surface: {
+      agent_mcp: HOST + "/mcp",
+      catalog_mcp: CATALOG + "mcp",
+      catalog_fraggate_call: FRAGGATE_CALL,
+      catalog_fraggate_list: FRAGGATE_LIST,
+      catalog_software: SOFTWARE_TAB,
+      human_worker_ui: HOST + "/",
+      download: HOST + "/download",
+      law: "Agent MCP + human Worker UI + /download. FragGate is THE single door. Do not gut either surface.",
+    },
+    fraggate: {
+      kernel: "https://github.com/AzielEliab/fraggate",
+      runtime: "https://github.com/AzielEliab/aziel-runtime",
+      list: FRAGGATE_LIST,
+      describe: FRAGGATE_DESCRIBE,
+      call: FRAGGATE_CALL,
+      software: SOFTWARE_TAB,
+      mcp: CATALOG + "mcp",
+      worker_proxy: {
+        list: HOST + "/v1/fraggate/list",
+        describe: HOST + "/v1/fraggate/describe",
+        call: HOST + "/v1/fraggate/call",
+      },
+      slug: "azcoherence",
+      note: "FragGate is THE single door. Worker /v1/fraggate/* PROXY via AZIEL_RUNTIME.",
+    },
+    peers: {
+      aziel_runtime: {
+        role: "catalog + FragGate door",
+        github: "https://github.com/AzielEliab/aziel-runtime",
+        homepage: CATALOG,
+        paths: ["/v1/fraggate/list", "/v1/fraggate/describe", "/v1/fraggate/call", "/v1/software", "/mcp"],
+        merge: false,
+      },
+      azclce: {
+        role: "peer scorer — separate product",
+        slug: "azclce",
+        name: "AZ-CLCE",
+        github: "https://github.com/AzielEliab/az-clce",
+        homepage: AZCLCE_HOST + "/",
+        note: "R/D/P inconsistency, not intent. Peer of AZCoherence. Do not merge.",
+        merge: false,
+      },
+      akm_triad: {
+        role: "fabric neighbor — cite only",
+        spec: "AKM-TRIAD-1.0",
+        note: "LIVE fabric memory on aziel-runtime. Not a Softwares slug. Posterior ≠ truth. Do not merge.",
+        merge: false,
+        software_tab: false,
+      },
+      azinterface: {
+        role: "custodial operating environment",
+        slug: "azinterface",
+        name: "AZInterface",
+        github: "https://github.com/AzielEliab/azinterface",
+        homepage: AZINTERFACE_HOST + "/",
+        note: "Custodial OE / page cycles. Pair custody. Not a merge.",
+        merge: false,
+      },
+      hubs: {
+        azieleliab: HUB_AZIELELIAB,
+        azielcorpuslibrary: HUB_LIBRARY,
+        godlock: HUB_GODLOCK,
+      },
+    },
+    clients: FULL_CLIENTS.slice(),
   };
 }
 
@@ -91,7 +189,7 @@ export function jsonLd() {
     keywords: "AZCoherence, triad, hallucination, coherence, Aziel Eliab, AZC-WP-0.1, Aziel Elroi Eliab",
     isAccessibleForFree: true,
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-    sameAs: [GITHUB_REPO, CATALOG_PRODUCT],
+    sameAs: [GITHUB_REPO, CATALOG_PRODUCT, AZCLCE_HOST + "/", AZINTERFACE_HOST + "/", HUB_AZIELELIAB, HUB_LIBRARY, HUB_GODLOCK],
   };
 }
 
@@ -162,23 +260,69 @@ Sitemap: ${HOST}/sitemap.xml
 function llmsTxt() {
   return `# AZCoherence
 
-Author: Aziel Eliab
+Author: Aziel Eliab only
+Identity: Aziel Eliab only
 One-line: ${DESCRIPTION}
+Spec: AZC-WP-0.1 / AZC-0.1
+Class: Plain
+Slug: azcoherence
+Placement: scoring-review (Softwares tab placement, not a domain door)
+Door: FragGate is THE single door
 GitHub: ${GITHUB_REPO}
 Homepage: ${HOST}/
 Download: ${HOST}/download
 Install: ${HOST}/install.sh
 OpenAPI: ${HOST}/openapi.json
 Skill: ${HOST}/v1/skill
-MCP: ${HOST}/mcp
-Catalog MCP: ${CATALOG}mcp (FragGate slug azcoherence)
 Cite: ${HOST}/cite.json
-Ops: POST /v1/review_triad, POST /v1/alternate_score, POST /v1/coherence_check, POST /v1/neutralize_hallucination, POST /v1/verify, GET /v1/health, GET /v1/skill, GET /v1/doctor
+
+## Dual surface (do not gut either)
+
+Agent MCP: POST ${HOST}/mcp
+Catalog MCP: POST ${CATALOG}mcp (FragGate slug azcoherence)
+Human Worker UI: ${HOST}/
+Counted download: ${HOST}/download
+Law: agent MCP + human Worker UI + /download. FragGate is THE single door.
+
+## aziel-runtime FragGate (catalog door)
+
+Kernel: https://github.com/AzielEliab/fraggate
+Runtime: https://github.com/AzielEliab/aziel-runtime
+GET ${FRAGGATE_LIST}
+GET ${FRAGGATE_DESCRIBE}
+POST ${FRAGGATE_CALL}  { "slug": "azcoherence", "op": "<LIVE_OP>", "payload": {} }
+GET ${SOFTWARE_TAB}
+POST ${CATALOG}mcp
+Worker PROXY: GET|POST ${HOST}/v1/fraggate/{list,describe,call}
+
+## Peers (do not merge)
+
+AZ-CLCE / azclce — peer scorer, separate product. R/D/P inconsistency, not intent.
+  https://github.com/AzielEliab/az-clce
+  ${AZCLCE_HOST}/
+AKM-TRIAD-1.0 — fabric neighbor only. LIVE memory on aziel-runtime. Not a Softwares slug. Posterior ≠ truth. Do not merge.
+AZInterface — custodial operating environment (AIH page cycles / pair custody).
+  https://github.com/AzielEliab/azinterface
+  ${AZINTERFACE_HOST}/
+
+## Softwares hubs
+
+${HUB_AZIELELIAB}
+${HUB_LIBRARY}
+${HUB_GODLOCK}
+
+## Ops
+
+POST /v1/review_triad, POST /v1/alternate_score, POST /v1/coherence_check, POST /v1/neutralize_hallucination, POST /v1/verify, GET /v1/health, GET /v1/skill, GET /v1/doctor
 FragGate proxy: GET /v1/fraggate/list, GET /v1/fraggate/describe, POST /v1/fraggate/call (via AZIEL_RUNTIME)
 Suite mesh: GET ${HOST}/v1/mesh PROXY to aziel-runtime. Default OFF. GET never enables. Product-local mesh_enable is stub/REFUSE. QNM-BUILD-1.0 live|locked|isolated. No Node Gate. No auto-heal. Not anonymity. Catalog MCP mesh_* + FragGate slug=mesh.
 Catalog LIVE_OPS: health, skill, doctor, verify, review_triad, alternate_score, coherence_check, neutralize_hallucination
 MCP tools: azcoherence_health, azcoherence_skill, azcoherence_doctor, azcoherence_verify, azcoherence_review_triad
-Identity: Aziel Eliab only
+
+## AI clients (full set — never the short triad only)
+
+Works with ${FULL_CLIENTS.join(", ")}.
+Law: Confidence is not truth. Never invent evidence. Peer of AZ-CLCE, not merged. Not AKM-TRIAD.
 License: Apache-2.0
 Forks: welcome and always allowed
 DOI: none invented; software deposit still needed.
@@ -318,6 +462,15 @@ export function renderHome(stats) {
   #meshStrip button:hover { background: #241c0d; color: var(--gold); }
   #meshStrip input { width: 10rem; padding: .4rem .55rem; border: 1px solid var(--gold); border-radius: 8px; background: #0e0e0e; color: var(--ink); font: inherit; }
   #meshProducts { flex-basis: 100%; margin: 0; }
+  .peergrid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .7rem; margin: .7rem 0 0; }
+  @media (max-width: 720px) { .peergrid { grid-template-columns: 1fr; } }
+  .peer { border: 1px solid var(--line); border-radius: 10px; padding: .75rem .85rem; background: #101010; }
+  .peer h3 { margin: 0 0 .25rem; font-size: .95rem; }
+  .peer p { margin: 0; color: var(--muted); font-size: .86rem; }
+  .peer .role { color: var(--gold); font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; font-family: ui-monospace, Menlo, Consolas, monospace; }
+  .doorpath { background: #0e0e0e; border: 1px dashed var(--gold); border-radius: 10px; padding: .75rem .9rem; margin: .7rem 0; font-size: .82rem; }
+  .surfaces { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .55rem; margin: .7rem 0; }
+  @media (max-width: 720px) { .surfaces { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -337,11 +490,14 @@ export function renderHome(stats) {
       <p class="lede">v${VERSION} software by <strong>${AUTHOR}</strong> only. Review a primary triad/claim+score against an alternate independent path. Receipts PASS / FLAG / NEUTRALIZE / REFUSE. Never invent evidence. Forks are welcome and always allowed.</p>
       <nav class="toc" aria-label="Product sections">
         <a href="#workspace">Use UI</a>
+        <a href="#surfaces">Dual surface</a>
+        <a href="#peers">Softwares peers</a>
         <a href="#meshStrip">Live Nodes</a>
         <a href="#install">Download / install</a>
         <a href="#cite">Cite</a>
         <a href="/v1/skill">Skill</a>
         <a href="/mcp">MCP</a>
+        <a href="/v1/fraggate/list">FragGate list</a>
         <a href="/openapi.json">OpenAPI</a>
         <a href="${GITHUB_REPO}">GitHub</a>
       </nav>
@@ -397,6 +553,7 @@ export function renderHome(stats) {
             <button type="button" class="ghost" id="btn-health">Health</button>
             <button type="button" class="ghost" id="btn-skill">Skill</button>
             <button type="button" class="ghost" id="btn-doctor">Doctor</button>
+            <button type="button" class="gold" id="btn-fraggate">FragGate call</button>
             <button type="button" class="ghost" id="btn-example">Fill sample</button>
           </div>
         </form>
@@ -416,6 +573,34 @@ export function renderHome(stats) {
       </div>
     </section>
 
+    <section class="card" id="surfaces">
+      <h2><span class="kicker">Dual-surface law</span>Agent MCP · human Worker UI · /download</h2>
+      <p class="lede">FragGate is THE single door. Agents stay in chat (<code>display.title</code> / <code>display.summary</code>). Humans keep this complete Worker UI and the counted package. Do not gut either surface.</p>
+      <div class="surfaces">
+        <div class="peer"><span class="role">Agent</span><h3>MCP + FragGate</h3><p><a href="/mcp">POST /mcp</a> on this Worker, or catalog <a href="${CATALOG}mcp">POST /mcp</a> · slug <code>azcoherence</code>.</p></div>
+        <div class="peer"><span class="role">Human</span><h3>This Worker UI</h3><p>Catalog labels on <a href="${HOST}/">the homepage</a>. Local <code>azcoherence ui</code> at 127.0.0.1:8871.</p></div>
+        <div class="peer"><span class="role">Package</span><h3>Counted /download</h3><p><a href="/download?asset=${DEFAULT_ASSET}">gzip HTTP 200</a>. Isolated KV <code>AZCOHERENCE_DOWNLOADS</code>. /v1 does not increment.</p></div>
+      </div>
+      <div class="doorpath" id="fraggate-path">
+        <span class="kicker">Runtime FragGate call path</span>
+        <p>Catalog door: <code>POST ${FRAGGATE_CALL}</code> body <code>{"slug":"azcoherence","op":"review_triad","payload":{…}}</code></p>
+        <p>List: <a href="${FRAGGATE_LIST}">${FRAGGATE_LIST}</a> · Describe: <a href="${FRAGGATE_DESCRIBE}">${FRAGGATE_DESCRIBE}</a> · Softwares: <a href="${SOFTWARE_TAB}">${SOFTWARE_TAB}</a></p>
+        <p>This Worker PROXY (same door, not a second door): <a href="/v1/fraggate/list">GET /v1/fraggate/list</a> · <a href="/v1/fraggate/describe?slug=azcoherence">GET /v1/fraggate/describe</a> · <code>POST /v1/fraggate/call</code>. The <strong>FragGate call</strong> button uses the Worker proxy.</p>
+      </div>
+    </section>
+
+    <section class="card" id="peers">
+      <h2><span class="kicker">Softwares · Plain · scoring-review</span>Suite peers — do not merge</h2>
+      <p class="lede">AZCoherence is a Softwares-tab <strong>scoring-review</strong> placement. Peer of AZ-CLCE (azclce). Not AKM-TRIAD. FragGate remains THE single door.</p>
+      <div class="peergrid">
+        <div class="peer"><span class="role">Catalog door</span><h3><a href="${CATALOG}">aziel-runtime</a></h3><p>FragGate <code>/v1/fraggate/*</code>, <code>/v1/software</code>, <code>/mcp</code>. Kernel <a href="https://github.com/AzielEliab/fraggate">fraggate</a>.</p></div>
+        <div class="peer"><span class="role">Peer scorer</span><h3><a href="${AZCLCE_HOST}/">AZ-CLCE / azclce</a></h3><p>R/D/P inconsistency, not intent. Separate product. <a href="https://github.com/AzielEliab/az-clce">github.com/AzielEliab/az-clce</a></p></div>
+        <div class="peer"><span class="role">Fabric neighbor</span><h3>AKM-TRIAD-1.0</h3><p>LIVE fabric memory on aziel-runtime. Cite only. Not a Softwares slug. Posterior ≠ truth. Do not merge.</p></div>
+        <div class="peer"><span class="role">Custodial OE</span><h3><a href="${AZINTERFACE_HOST}/">AZInterface</a></h3><p>Page cycles / pair custody. <a href="https://github.com/AzielEliab/azinterface">github.com/AzielEliab/azinterface</a></p></div>
+      </div>
+      <p class="meta">Hubs: <a href="${HUB_AZIELELIAB}">azieleliab.com</a> · <a href="${HUB_LIBRARY}">azielcorpuslibrary.net</a> · <a href="${HUB_GODLOCK}">godlock.uk</a> · also <a href="${DECISIONGATE_HOST}/">DecisionGATE</a></p>
+    </section>
+
     <section class="card" id="install">
       <h2><span class="kicker">Counted package</span>Download and one-click install</h2>
       <div class="nums">
@@ -431,7 +616,7 @@ export function renderHome(stats) {
       <p class="meta">The download count ticks on the Download click. No 302 to GitHub. Forks using this same link are counted automatically. ${DEFAULT_ASSET} — ${n} counted.</p>
       <p class="iso">Isolated counter: Worker <code>azcoherence-download-tracker</code>, project <code>azcoherence</code>, KV <code>AZCOHERENCE_DOWNLOADS</code>. Not mixed with any other product. /v1 does not increment downloads.</p>
       <p class="meta">GitHub: stars ${gh.stars || 0} · forks ${gh.forks || 0} · watchers ${gh.watchers || 0} · release assets ${gh.release_download_count || 0}</p>
-      <p class="meta">Peers (do not merge): <a href="${AZCLCE_HOST}/">AZ-CLCE</a> · AKM-TRIAD-1.0 (fabric, not Softwares) · <a href="${DECISIONGATE_HOST}/">DecisionGATE</a> · <a href="https://github.com/AzielEliab/fraggate">FragGate</a> · <a href="${CATALOG}">aziel-runtime</a> · <a href="https://www.azielcorpuslibrary.net/">library</a> · <a href="https://godlock.uk/">godlock.uk</a> · <a href="https://www.azieleliab.com/">www.azieleliab.com</a></p>
+      <p class="meta">Peers (do not merge): <a href="${AZCLCE_HOST}/">AZ-CLCE / azclce</a> · AKM-TRIAD-1.0 (fabric neighbor, cite only) · <a href="${AZINTERFACE_HOST}/">AZInterface</a> · <a href="${DECISIONGATE_HOST}/">DecisionGATE</a> · <a href="https://github.com/AzielEliab/fraggate">FragGate</a> · <a href="${CATALOG}">aziel-runtime</a> · hubs <a href="${HUB_LIBRARY}">azielcorpuslibrary.net</a> · <a href="${HUB_GODLOCK}">godlock.uk</a> · <a href="${HUB_AZIELELIAB}">azieleliab.com</a></p>
       <p class="meta"><a href="/stats">JSON stats</a> · <a href="/count">/count</a> · <a href="/openapi.json">OpenAPI</a> · <a href="/mcp">MCP</a> · <a href="/v1/fraggate/list">FragGate list</a> · <a href="/v1/mesh">/v1/mesh</a> · <a href="/v1/skill">Skill</a> · <a href="/v1/example">Example</a> · <a href="/ai">AI runtime</a> · <a href="${GITHUB_REPO}">GitHub</a> · <a href="${GITHUB_LATEST}">releases</a></p>
       <h3>Per repo / branch / fork</h3>
       <ul>${breakdownList(stats)}</ul>
@@ -520,6 +705,11 @@ export function renderHome(stats) {
       $("btn-health").onclick = function () { run(function () { return api("/v1/health", {}); }, "Health. Catalog FragGate op. No writes."); };
       $("btn-skill").onclick = function () { run(function () { return api("/v1/skill", {}); }, "Skill. Catalog FragGate op."); };
       $("btn-doctor").onclick = function () { run(function () { return api("/v1/doctor", {}); }, "Doctor. Catalog FragGate LIVE_OPS."); };
+      $("btn-fraggate").onclick = function () {
+        run(function () {
+          return api("/v1/fraggate/call", { slug: "azcoherence", op: "review_triad", payload: fields() });
+        }, "FragGate call via Worker PROXY to aziel-runtime. Same door as catalog POST /v1/fraggate/call.");
+      };
       $("btn-example").onclick = function () {
         $("claim").value = "login succeeds";
         $("primary_score").value = "0.91";

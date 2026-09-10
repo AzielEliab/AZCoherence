@@ -43,6 +43,13 @@ HIGH_CONF = 0.80
 
 PEER_AZ_CLCE = "https://github.com/AzielEliab/az-clce"
 PEER_AKM = "AKM-TRIAD-1.0"
+PEER_RUNTIME = "https://github.com/AzielEliab/aziel-runtime"
+PEER_AZINTERFACE = "https://github.com/AzielEliab/azinterface"
+HUBS = {
+    "azieleliab": "https://www.azieleliab.com/",
+    "azielcorpuslibrary": "https://www.azielcorpuslibrary.net/",
+    "godlock": "https://godlock.uk/",
+}
 HONEST = (
     "THIS IS: an advisory coherence reviewer (AZC-WP-0.1). Primary triad/claim+score "
     "versus an alternate independent path. Receipts are PASS / FLAG / NEUTRALIZE / REFUSE. "
@@ -257,8 +264,16 @@ def _receipt(
         "confidence_is_not_truth": True,
         "invented_evidence": False,
         "peers": {
-            "az_clce": {"github": PEER_AZ_CLCE, "note": "R/D/P inconsistency, not intent. Do not merge."},
-            "akm_triad": {"spec": PEER_AKM, "note": "LIVE fabric memory on aziel-runtime. Not a Softwares slug. Do not merge."},
+            "aziel_runtime": {
+                "role": "catalog + FragGate door",
+                "github": PEER_RUNTIME,
+                "paths": ["/v1/fraggate/list", "/v1/fraggate/describe", "/v1/fraggate/call", "/v1/software", "/mcp"],
+                "merge": False,
+            },
+            "az_clce": {"slug": "azclce", "github": PEER_AZ_CLCE, "note": "Peer scorer. R/D/P inconsistency, not intent. Do not merge."},
+            "akm_triad": {"spec": PEER_AKM, "note": "LIVE fabric memory on aziel-runtime. Fabric neighbor — cite only. Not a Softwares slug. Do not merge."},
+            "azinterface": {"slug": "azinterface", "github": PEER_AZINTERFACE, "note": "Custodial OE. Do not merge."},
+            "hubs": dict(HUBS),
         },
         "thresholds": {
             "pass_delta": PASS_DELTA,

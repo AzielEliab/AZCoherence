@@ -1,4 +1,6 @@
 include SKILL.md
+include cite.json
+include llms.txt
 include install.sh
 include LICENSE
 include README.md

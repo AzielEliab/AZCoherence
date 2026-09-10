@@ -23,6 +23,16 @@ def test_seo_and_softwareapplication_json_ld() -> None:
     assert "/sigil.png" in HOME
 
 
+def test_workspace_shows_fraggate_door_and_peers() -> None:
+    assert "btn-fraggate" in HOME
+    assert "/v1/fraggate/call" in HOME
+    assert "Dual-surface law" in HOME
+    assert "AZInterface" in HOME
+    assert "azclce" in HOME
+    assert "AKM-TRIAD" in HOME
+    assert "scoring-review" in HOME
+
+
 def test_workspace_calls_real_ops() -> None:
     for path in (
         "/v1/review_triad",

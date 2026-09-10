@@ -131,8 +131,17 @@ truth. It does **not** rewrite history.
 
 ## Peers (do not merge)
 
-- [AZ-CLCE](https://github.com/AzielEliab/az-clce) — R/D/P inconsistency, not intent. Separate product.
-- **AKM-TRIAD-1.0** — LIVE fabric memory on [aziel-runtime](https://github.com/AzielEliab/aziel-runtime). Not a Softwares slug. Behind FragGate (`memory_*`). Posterior ≠ truth.
+- [aziel-runtime](https://github.com/AzielEliab/aziel-runtime) FragGate — THE single door. Catalog paths: `/v1/fraggate/list`, `/v1/fraggate/describe`, `/v1/fraggate/call`, `/v1/software`, `/mcp`. Kernel: [fraggate](https://github.com/AzielEliab/fraggate). This Worker `/v1/fraggate/*` PROXY via `AZIEL_RUNTIME`.
+- [AZ-CLCE](https://github.com/AzielEliab/az-clce) / slug `azclce` — peer scorer, **separate product**. R/D/P inconsistency, not intent. Worker: https://azclce-download-tracker.vibelock.workers.dev/
+- **AKM-TRIAD-1.0** — fabric neighbor only. LIVE memory on aziel-runtime (`memory_*`). Not a Softwares slug. Posterior ≠ truth. Cite; do not merge.
+- [AZInterface](https://github.com/AzielEliab/azinterface) — custodial operating environment (AIH page cycles / pair custody). Worker: https://azinterface-download-tracker.vibelock.workers.dev/
+- Softwares hubs: [azieleliab.com](https://www.azieleliab.com/) · [azielcorpuslibrary.net](https://www.azielcorpuslibrary.net/) · [godlock.uk](https://godlock.uk/)
+
+Machine cites: [cite.json](cite.json) · [llms.txt](llms.txt) · live [Worker cite.json](https://azcoherence-download-tracker.vibelock.workers.dev/cite.json) · [Worker llms.txt](https://azcoherence-download-tracker.vibelock.workers.dev/llms.txt).
+
+## Dual surface
+
+Agent MCP (`POST /mcp` + catalog FragGate call) **and** the human Worker UI **and** counted `/download`. Do not gut either surface. FragGate is THE single door.
 
 ## Invariants (enforced)
 
@@ -143,7 +152,16 @@ truth. It does **not** rewrite history.
 - **I5** Receipts are PASS / FLAG / NEUTRALIZE / REFUSE
 - **I6** Mesh GET never enables. Mesh default OFF. Product-local `mesh_enable` is stub
 
-## Cross-links
+## Cross-map (suite)
+
+| Peer | Role | Merge? |
+|------|------|--------|
+| aziel-runtime FragGate (`/v1/fraggate/*`, `/v1/software`, `/mcp`) | Catalog door | No — this product PROXY only |
+| AZ-CLCE / `azclce` | Peer scorer | No — separate product |
+| AKM-TRIAD-1.0 | Fabric neighbor | No — cite only |
+| AZInterface | Custodial OE | No |
+| azieleliab.com · azielcorpuslibrary.net · godlock.uk | Softwares hubs | Cite |
+| DecisionGATE · FragGate kernel · qnm-node · QNS-CD-1.0 | Suite / fabric cites | Cite |
 
 - [AZ-CLCE](https://github.com/AzielEliab/az-clce) — peer; inconsistency, not intent
 - [DecisionGATE](https://github.com/AzielEliab/decisiongate) — five sequential gates
@@ -151,7 +169,7 @@ truth. It does **not** rewrite history.
 - [aziel-runtime](https://github.com/AzielEliab/aziel-runtime) — catalog + MCP + OpenAPI (`qns_cd` cite field)
 - [QNS-CD-1.0](https://github.com/AzielEliab/aziel-runtime/blob/main/docs/designs/QNS-CD-1.0.md) — photon QNS1 1.3 packet-transfer coding design (Worker cites only)
 - [qnm-node](https://github.com/AzielEliab/qnm-node) — local Quantum Node Mesh process (`qnsd` / photon QNS1; not hosted here)
-- [AZInterface](https://github.com/AzielEliab/azinterface) — pair custody (AIH page cycles)
+- [AZInterface](https://github.com/AzielEliab/azinterface) — custodial OE (AIH page cycles)
 - [Aziel Digital Library](https://www.azielcorpuslibrary.net/)
 - [godlock.uk](https://godlock.uk/)
 - [www.azieleliab.com](https://www.azieleliab.com/)

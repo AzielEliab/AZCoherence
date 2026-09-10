@@ -1,0 +1,71 @@
+# AZCoherence
+
+Author: Aziel Eliab only
+Identity: Aziel Eliab only
+One-line: AZCoherence is Aziel Eliab software: alternate-triad double-check to neutralize AI hallucination in scores (AZC-WP-0.1). Confidence is not truth. Never invent evidence. Apache-2.0.
+Spec: AZC-WP-0.1 / AZC-0.1
+Class: Plain
+Slug: azcoherence
+Placement: scoring-review (Softwares tab placement, not a domain door)
+Door: FragGate is THE single door
+GitHub: https://github.com/AzielEliab/AZCoherence
+Homepage: https://azcoherence-download-tracker.vibelock.workers.dev/
+Download: https://azcoherence-download-tracker.vibelock.workers.dev/download
+Install: https://azcoherence-download-tracker.vibelock.workers.dev/install.sh
+OpenAPI: https://azcoherence-download-tracker.vibelock.workers.dev/openapi.json
+Skill: https://azcoherence-download-tracker.vibelock.workers.dev/v1/skill
+Cite: https://azcoherence-download-tracker.vibelock.workers.dev/cite.json
+Repo cite: https://github.com/AzielEliab/AZCoherence/blob/main/cite.json
+
+## Dual surface (do not gut either)
+
+Agent MCP: POST https://azcoherence-download-tracker.vibelock.workers.dev/mcp
+Catalog MCP: POST https://aziel-runtime.vibelock.workers.dev/mcp (FragGate slug azcoherence)
+Human Worker UI: https://azcoherence-download-tracker.vibelock.workers.dev/
+Counted download: https://azcoherence-download-tracker.vibelock.workers.dev/download
+Law: agent MCP + human Worker UI + /download. FragGate is THE single door.
+
+## aziel-runtime FragGate (catalog door)
+
+Kernel: https://github.com/AzielEliab/fraggate
+Runtime: https://github.com/AzielEliab/aziel-runtime
+GET https://aziel-runtime.vibelock.workers.dev/v1/fraggate/list
+GET https://aziel-runtime.vibelock.workers.dev/v1/fraggate/describe?slug=azcoherence
+POST https://aziel-runtime.vibelock.workers.dev/v1/fraggate/call  { "slug": "azcoherence", "op": "<LIVE_OP>", "payload": {} }
+GET https://aziel-runtime.vibelock.workers.dev/v1/software
+POST https://aziel-runtime.vibelock.workers.dev/mcp
+Worker PROXY: GET|POST https://azcoherence-download-tracker.vibelock.workers.dev/v1/fraggate/{list,describe,call}
+
+## Peers (do not merge)
+
+AZ-CLCE / azclce — peer scorer, separate product. R/D/P inconsistency, not intent.
+  https://github.com/AzielEliab/az-clce
+  https://azclce-download-tracker.vibelock.workers.dev/
+AKM-TRIAD-1.0 — fabric neighbor only. LIVE memory on aziel-runtime. Not a Softwares slug. Posterior ≠ truth. Do not merge.
+AZInterface — custodial operating environment (AIH page cycles / pair custody).
+  https://github.com/AzielEliab/azinterface
+  https://azinterface-download-tracker.vibelock.workers.dev/
+
+## Softwares hubs
+
+https://www.azieleliab.com/
+https://www.azielcorpuslibrary.net/
+https://godlock.uk/
+
+## Ops
+
+POST /v1/review_triad, POST /v1/alternate_score, POST /v1/coherence_check, POST /v1/neutralize_hallucination, POST /v1/verify, GET /v1/health, GET /v1/skill, GET /v1/doctor
+Catalog LIVE_OPS: health, skill, doctor, verify, review_triad, alternate_score, coherence_check, neutralize_hallucination
+MCP tools: azcoherence_health, azcoherence_skill, azcoherence_doctor, azcoherence_verify, azcoherence_review_triad, azcoherence_alternate_score, azcoherence_coherence_check, azcoherence_neutralize_hallucination
+Suite mesh: GET /v1/mesh PROXY to aziel-runtime. Default OFF. GET never enables. Product-local mesh_enable is stub/REFUSE.
+
+## AI clients (full set — never the short triad only)
+
+Works with ChatGPT (GPT Actions / OpenAI), Grok (xAI), Venice, Claude (Anthropic), Cursor (MCP), Glama (MCP), Perplexity, Microsoft Copilot / Bing, Google Gemini / Vertex, Mistral, Meta AI, Apple Intelligence surfaces, Amazon Q tooling, DuckAssist, You.com, Cohere, and other MCP/OpenAPI-capable assistants.
+
+Law: Confidence is not truth. Never invent evidence. Peer of AZ-CLCE, not merged. Not AKM-TRIAD.
+License: Apache-2.0
+Forks: welcome and always allowed
+DOI: none invented; software deposit still needed.
+
+Indexing, metadata scrape, and AI grounding of public pages are allowed.
