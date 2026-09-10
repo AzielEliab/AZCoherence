@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "azcoherence"
+version = "0.1.0"
+description = "Alternate-triad coherence reviewer (AZCoherence AZC-WP-0.1, Aziel Eliab). Confidence is not truth. Never invent evidence."
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [{name = "Aziel Eliab"}]
+requires-python = ">=3.10"
+keywords = [
+    "azcoherence",
+    "triad",
+    "hallucination",
+    "coherence",
+    "receipts",
+    "fraggate",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Intended Audience :: Developers",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7.4"]
+
+[project.scripts]
+azcoherence = "azcoherence.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/AzielEliab/AZCoherence"
+Download = "https://azcoherence-download-tracker.vibelock.workers.dev/"
+Issues = "https://github.com/AzielEliab/AZCoherence/issues"
+
+[tool.setuptools.packages.find]
+include = ["azcoherence*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"
