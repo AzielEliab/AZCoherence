@@ -1,0 +1,13 @@
+{
+  "claim": "login succeeds",
+  "primary": {
+    "score": 0.91,
+    "path": "primary",
+    "evidence": ["operator-provided cite A"]
+  },
+  "alternate": {
+    "score": 0.88,
+    "path": "independent",
+    "evidence": ["operator-provided cite B"]
+  }
+}

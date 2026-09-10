@@ -1,0 +1,23 @@
+{
+  "product": "azcoherence",
+  "spec": "AZC-WP-0.1",
+  "version": "0.1.0",
+  "author": "Aziel Eliab",
+  "claim": "login succeeds",
+  "primary_path": "primary",
+  "alternate_path": "independent",
+  "primary_score": 0.91,
+  "alternate_score": 0.88,
+  "delta": 0.03,
+  "verdict": "PASS",
+  "evidence_primary": [
+    "operator-provided cite A"
+  ],
+  "evidence_alternate": [
+    "operator-provided cite B"
+  ],
+  "invented_evidence": false,
+  "confidence_is_not_truth": true,
+  "advisory": true,
+  "receipt_hash": "50cf610a0e8f64dc36b3c113b73465409cdfa4e706cd4a987c86881b21b891d3"
+}
