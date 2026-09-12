@@ -1,4 +1,7 @@
-"""Worker homepage is AZCoherence software, not a downloads shell."""
+"""Worker homepage is AZCoherence software, not a downloads shell.
+
+Public mark copy is wordless (/sigil.png, empty alt). Aziel Eliab only.
+"""
 
 from __future__ import annotations
 
@@ -19,8 +22,10 @@ def test_seo_and_softwareapplication_json_ld() -> None:
     assert "Aziel Eliab" in HOME
     assert "cite.json" in HOME
     assert "sitemap.xml" in HOME
-    assert "Everblooming sigil" in HOME
     assert "/sigil.png" in HOME
+    assert 'alt=""' in HOME
+    assert "Everblooming sigil" not in HOME
+    assert "everblooming" not in HOME.lower()
 
 
 def test_workspace_shows_fraggate_door_and_peers() -> None:
