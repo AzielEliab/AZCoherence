@@ -21,3 +21,15 @@ GET `/cite.json`, `/sitemap.xml`, `/robots.txt`, `/llms.txt` are SEO / cite surf
 Human UI shows Softwares-style peer links (AZ-CLCE, AKM-TRIAD cite-only, AZInterface, aziel-runtime, hubs) and the runtime FragGate call path (`POST /v1/fraggate/call` PROXY). Dual surface: agent MCP + human Worker UI + `/download`.
 
 Host: https://azcoherence-download-tracker.vibelock.workers.dev
+
+## Human / bot schema (`/stats` and `/count`)
+
+Additive dual-count (Whitestone canary). Classification lives in `src/classify.js`
+and response shaping in `src/stats-shape.js`.
+
+Invariant: `views === views_human + views_bot` and
+`downloads === downloads_human + downloads_bot`.
+
+Legacy strategy (b): existing KV totals are never reset. Pre-split remainder
+is shown as bot on read (`views_bot = views - views_human`). Author: Aziel Eliab only.
+
