@@ -1,7 +1,7 @@
 """Suite mesh Live Nodes + QNM-BUILD-1.0 + QNS-CD-1.0 cross-map.
 
 Default OFF. live|locked|isolated. No Node Gate. No public qnsd proxy.
-No auto-heal. Not anonymity. Hub cite only — not a Softwares-tab product.
+No auto-heal. Identity-bearing QNM mesh. Hub cite / Worker mesh cross-map.
 """
 
 from __future__ import annotations
@@ -105,8 +105,8 @@ def test_home_live_nodes_strip_no_node_gate() -> None:
     assert "No Node Gate" in HOME
     assert "No public qnsd proxy" in HOME
     assert "No auto-heal" in HOME
-    assert "Not an anonymity network" in HOME
-    assert "not a Softwares-tab product" in HOME
+    assert "Identity-bearing QNM mesh" in HOME
+    assert "hub cite only" in HOME
     assert "/v1/mesh" in HOME
     assert 'product: "azcoherence"' in HOME
     assert 'id="node-gate"' not in HOME
@@ -122,7 +122,7 @@ def test_docs_advertise_mesh_proxy() -> None:
     assert "https://github.com/AzielEliab/qnm-node" in README
     assert "https://github.com/AzielEliab/aziel-runtime" in README
     assert "https://github.com/AzielEliab/qnm-node" in SKILL
-    assert "Not a Softwares-tab product" in README
+    assert "hub cite / Worker mesh cross-map" in README
     assert "No public qnsd proxy" in README
     assert "QNM-BUILD-1.0" in WORKER_README
     assert "QNS-CD-1.0" in WORKER_README

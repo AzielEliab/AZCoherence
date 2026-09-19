@@ -39,7 +39,7 @@ const FULL_CLIENTS =
 
 export const SKILL = `---
 name: AZCoherence
-description: Use when double-checking an alternate triad score against a primary claim+score to prevent / neutralize / eliminate AI hallucination in scoring (AZC-WP-0.1). Receipts PASS / FLAG / NEUTRALIZE / REFUSE. Never invent evidence. Confidence is not truth. Dual surface: Worker /v1 + POST /mcp, or aziel-runtime FragGate slug azcoherence. This Worker /v1/fraggate/* and /v1/mesh/* PROXY to aziel-runtime via AZIEL_RUNTIME. Suite mesh default OFF. GET /v1/mesh never enables. Product-local mesh_enable is stub/REFUSE. QNM-BUILD-1.0 live|locked|isolated. QNS-CD-1.0 photon QNS1 hub cite (local qnsd in qnm-node). Not a Softwares-tab product. No Node Gate. No public qnsd proxy. No auto-heal. Not anonymity. Does not merge AZ-CLCE or AKM-TRIAD-1.0. Author Aziel Eliab.
+description: Use when double-checking an alternate triad score against a primary claim+score to prevent / neutralize / eliminate AI hallucination in scoring (AZC-WP-0.1). Receipts PASS / FLAG / NEUTRALIZE / REFUSE. Never invent evidence. Confidence is not truth. Dual surface: Worker /v1 + POST /mcp, or aziel-runtime FragGate slug azcoherence. This Worker /v1/fraggate/* and /v1/mesh/* PROXY to aziel-runtime via AZIEL_RUNTIME. Suite mesh default OFF. GET /v1/mesh never enables. Product-local mesh_enable is stub/REFUSE. QNM-BUILD-1.0 live|locked|isolated. QNS-CD-1.0 photon QNS1 hub cite / Worker mesh cross-map (local qnsd in qnm-node). No Node Gate. No public qnsd proxy. No auto-heal. Identity-bearing QNM mesh. Peers AZ-CLCE and AKM-TRIAD-1.0 stay separate — cite only. Author Aziel Eliab.
 ---
 
 # AZCoherence
@@ -65,16 +65,16 @@ Host: \`https://azcoherence-download-tracker.vibelock.workers.dev\`
 | GET | \`/v1/skill\` | This markdown. FragGate LIVE_OPS. Does not increment downloads. |
 | GET | \`/v1/example\` | Sample review payload. Worker-local. Does not increment downloads. |
 | GET | \`/v1/doctor\` | Self-check (no writes). FragGate LIVE_OPS. |
-| GET | \`/v1/fraggate/list\` | PROXY to aziel-runtime GET /v1/fraggate/list via AZIEL_RUNTIME. Not a local op. |
-| GET | \`/v1/fraggate/describe\` | PROXY to aziel-runtime GET /v1/fraggate/describe (\`?name=\` / \`?slug=\`). Not a local op. |
-| POST | \`/v1/fraggate/call\` | PROXY to aziel-runtime POST /v1/fraggate/call. Not a local op. |
+| GET | \`/v1/fraggate/list\` | PROXY to aziel-runtime GET /v1/fraggate/list via AZIEL_RUNTIME. |
+| GET | \`/v1/fraggate/describe\` | PROXY to aziel-runtime GET /v1/fraggate/describe (\`?name=\` / \`?slug=\`). |
+| POST | \`/v1/fraggate/call\` | PROXY to aziel-runtime POST /v1/fraggate/call. |
 | GET | \`/v1/mesh\` | PROXY suite mesh status. Default OFF. QNM live\\|locked\\|isolated. QNS-CD-1.0 hub cite. Never enables. |
 | GET | \`/v1/mesh/nodes\` | PROXY Live Nodes roster (5-minute presence) + QNS-CD-1.0 cross-map. |
-| POST | \`/v1/mesh/{enable,disable,join,heartbeat,leave,broadcast}\` | PROXY. Bearer required to enable. Product-local \`mesh_enable\` is stub/REFUSE. No auto-heal. Anon-broadcast is not a publish path. |
+| POST | \`/v1/mesh/{enable,disable,join,heartbeat,leave,broadcast}\` | PROXY. Bearer required to enable. Product-local \`mesh_enable\` is stub/REFUSE. No auto-heal. Anon-broadcast emits a SHA-256 receipt. |
 | POST | \`/v1/review_triad\` | Review primary triad vs alternate path. FragGate LIVE_OPS. |
 | POST | \`/v1/alternate_score\` | Independent score from provided evidence only. Never invented. FragGate LIVE_OPS. |
 | POST | \`/v1/coherence_check\` | Compare two scores. FragGate LIVE_OPS. |
-| POST | \`/v1/neutralize_hallucination\` | Advisory neutralize. Not publish-as-truth. FragGate LIVE_OPS. |
+| POST | \`/v1/neutralize_hallucination\` | Advisory neutralize. FragGate LIVE_OPS. |
 | POST | \`/v1/verify\` | Hash-walk a receipt. FragGate LIVE_OPS. |
 | POST | \`/v1/history_rewrite\` | Stub. REFUSE. |
 | POST | \`/v1/invent_citations\` | Stub. REFUSE. |
@@ -95,7 +95,7 @@ Catalog aliases under \`/p/azcoherence/…\` when listed.
 
 AZ-CLCE (peer scorer, do not merge): \`https://github.com/AzielEliab/az-clce\` · Worker \`https://azclce-download-tracker.vibelock.workers.dev/\`
 
-AKM-TRIAD-1.0 is LIVE fabric memory on aziel-runtime — cite as neighbor, not a Softwares slug. Do not merge.
+AKM-TRIAD-1.0 is LIVE fabric memory on aziel-runtime — fabric neighbor, cite only. Do not merge.
 
 AZInterface (custodial OE): \`https://github.com/AzielEliab/azinterface\` · Worker \`https://azinterface-download-tracker.vibelock.workers.dev/\`
 
@@ -105,7 +105,7 @@ FragGate kernel: \`https://github.com/AzielEliab/fraggate\`
 
 - **aziel-runtime FragGate** — THE single door. \`GET /v1/fraggate/list\`, \`GET /v1/fraggate/describe?slug=azcoherence\`, \`POST /v1/fraggate/call\` \`{slug:azcoherence,op,payload}\`, \`GET /v1/software\`, \`POST /mcp\`. Host: \`https://aziel-runtime.vibelock.workers.dev\`. This Worker \`/v1/fraggate/*\` PROXY via AZIEL_RUNTIME.
 - **AZ-CLCE / azclce** — peer scorer, separate product. R/D/P inconsistency, not intent.
-- **AKM-TRIAD-1.0** — fabric neighbor only. Posterior ≠ truth. Not a Softwares slug.
+- **AKM-TRIAD-1.0** — fabric neighbor only. Posterior is advisory. Cite only.
 - **AZInterface** — custodial operating environment (page cycles / pair custody).
 - **Softwares hubs** — https://www.azieleliab.com/ · https://www.azielcorpuslibrary.net/ · https://godlock.uk/
 - **Dual surface** — agent MCP + human Worker UI + \`/download\`. Do not gut either surface.
@@ -128,7 +128,7 @@ curl -s -A 'Mozilla/5.0' -X POST https://aziel-runtime.vibelock.workers.dev/v1/f
 FragGate LIVE_OPS (slug \`azcoherence\`): health, skill, doctor, verify, review_triad, alternate_score, coherence_check, neutralize_hallucination.
 UI labels match that catalog set: Review triad / Alternate score / Coherence check / Neutralize / Verify / Health / Skill / Doctor.
 
-${FULL_CLIENTS} Import the catalog or Worker OpenAPI as a GPT Action, custom HTTP tool, or custom OpenAPI tool. MCP clients (Cursor, Glama, Claude, and others): \`POST\` this Worker \`/mcp\` (thin doubles of the human buttons) or the catalog MCP endpoint (FragGate slug azcoherence). This Worker \`/v1/fraggate/*\` and \`/v1/mesh/*\` PROXY to aziel-runtime via AZIEL_RUNTIME. Catalog MCP \`mesh_*\` + FragGate \`slug=mesh\`. Suite mesh default OFF. QNM-BUILD-1.0 live|locked|isolated. QNS-CD-1.0 photon QNS1 packet transfer is a hub cite / mesh cross-map only (local qnsd: https://github.com/AzielEliab/qnm-node ; runtime cites: https://github.com/AzielEliab/aziel-runtime). Not a Softwares-tab product. No Node Gate. No public qnsd proxy. No auto-heal. Not anonymity.
+${FULL_CLIENTS} Import the catalog or Worker OpenAPI as a GPT Action, custom HTTP tool, or custom OpenAPI tool. MCP clients (Cursor, Glama, Claude, and others): \`POST\` this Worker \`/mcp\` (thin doubles of the human buttons) or the catalog MCP endpoint (FragGate slug azcoherence). This Worker \`/v1/fraggate/*\` and \`/v1/mesh/*\` PROXY to aziel-runtime via AZIEL_RUNTIME. Catalog MCP \`mesh_*\` + FragGate \`slug=mesh\`. Suite mesh default OFF. QNM-BUILD-1.0 live|locked|isolated. QNS-CD-1.0 photon QNS1 packet transfer is a hub cite / mesh cross-map (local qnsd: https://github.com/AzielEliab/qnm-node ; runtime cites: https://github.com/AzielEliab/aziel-runtime). No Node Gate. No public qnsd proxy. No auto-heal. Identity-bearing QNM mesh.
 
 ## Local (after one-click install)
 
@@ -150,7 +150,7 @@ Apache-2.0 (or the repo LICENSE). Forks are welcome and always allowed.
 
 ## Catalog + local UI
 
-Author: **Aziel Eliab**. Honest scope: coherence review, not truth.
+Author: **Aziel Eliab**. Honest scope: advisory coherence review. Confidence is not truth.
 
 - Product homepage (workspace + counted download): https://azcoherence-download-tracker.vibelock.workers.dev/
 - Catalog product (when listed): https://aziel-runtime.vibelock.workers.dev/p/azcoherence/
@@ -238,7 +238,7 @@ function mcpToolSchemas() {
     { name: "azcoherence_review_triad", description: "Review primary triad vs alternate path. Same as POST /v1/review_triad.", inputSchema: { type: "object", properties: { claim, primary: scoreObj, alternate: scoreObj, primary_score: { type: "number" }, alternate_score: { type: "number" } } } },
     { name: "azcoherence_alternate_score", description: "Independent score from provided evidence only. Never invented.", inputSchema: { type: "object", properties: { claim, evidence: { type: "array", items: { type: "string" } } } } },
     { name: "azcoherence_coherence_check", description: "Compare two scores. Same as POST /v1/coherence_check.", inputSchema: { type: "object", properties: { claim, primary: scoreObj, alternate: scoreObj } } },
-    { name: "azcoherence_neutralize_hallucination", description: "Advisory neutralize. Not publish-as-truth.", inputSchema: { type: "object", properties: { claim, primary: scoreObj, alternate: scoreObj } } },
+    { name: "azcoherence_neutralize_hallucination", description: "Advisory neutralize.", inputSchema: { type: "object", properties: { claim, primary: scoreObj, alternate: scoreObj } } },
     { name: "azcoherence_example", description: "Sample review payload. Same as GET /v1/example.", inputSchema: { type: "object", properties: {} } },
   ];
 }
@@ -383,9 +383,9 @@ function openapiSpec() {
       "/v1/invent_citations": opPath("invent_citations"),
       "/v1/publish_as_truth": opPath("publish_as_truth"),
       "/v1/mesh_enable": opPath("mesh_enable"),
-      "/v1/fraggate/list": { get: { operationId: "azcoherence_fraggate_list_proxy", summary: "PROXY to aziel-runtime GET /v1/fraggate/list via AZIEL_RUNTIME. Not a local op.", tags: ["fraggate"], responses: { "200": { description: "catalog" } } } },
-      "/v1/fraggate/describe": { get: { operationId: "azcoherence_fraggate_describe_proxy", summary: "PROXY to aziel-runtime GET /v1/fraggate/describe. Not a local op.", tags: ["fraggate"], responses: { "200": { description: "describe" } } } },
-      "/v1/fraggate/call": { post: { operationId: "azcoherence_fraggate_call_proxy", summary: "PROXY to aziel-runtime POST /v1/fraggate/call. Not a local op.", tags: ["fraggate"], requestBody: { content: { "application/json": { schema: { type: "object" } } } }, responses: { "200": { description: "call" } } } },
+      "/v1/fraggate/list": { get: { operationId: "azcoherence_fraggate_list_proxy", summary: "PROXY to aziel-runtime GET /v1/fraggate/list via AZIEL_RUNTIME.", tags: ["fraggate"], responses: { "200": { description: "catalog" } } } },
+      "/v1/fraggate/describe": { get: { operationId: "azcoherence_fraggate_describe_proxy", summary: "PROXY to aziel-runtime GET /v1/fraggate/describe.", tags: ["fraggate"], responses: { "200": { description: "describe" } } } },
+      "/v1/fraggate/call": { post: { operationId: "azcoherence_fraggate_call_proxy", summary: "PROXY to aziel-runtime POST /v1/fraggate/call.", tags: ["fraggate"], requestBody: { content: { "application/json": { schema: { type: "object" } } } }, responses: { "200": { description: "call" } } } },
       ...meshOpenApiPaths(),
     },
   };

@@ -25,8 +25,8 @@ Xcode.
 
 ## Honest scope
 
-Advisory coherence review only. Not AZ-CLCE. Not AKM-TRIAD-1.0.
-Not a truth verdict. Author: Aziel Eliab only.
+Advisory coherence review only. Peer of AZ-CLCE. AKM-TRIAD-1.0 fabric
+neighbor — cite only. Confidence is not truth. Author: Aziel Eliab only.
 
 ## Desktop package (counted download)
 
