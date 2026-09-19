@@ -10,8 +10,8 @@ void main() {
 const String limitation =
     'AZCoherence reviews a primary triad/claim+score against an alternate '
     'independent path. Receipts are PASS / FLAG / NEUTRALIZE / REFUSE. '
-    'Never invent evidence. Confidence is not truth. Not AZ-CLCE. '
-    'Not AKM-TRIAD-1.0. Advisory only. Author: Aziel Eliab.';
+    'Never invent evidence. Confidence is not truth. Peer of AZ-CLCE. '
+    'AKM-TRIAD-1.0 fabric neighbor — cite only. Advisory only. Author: Aziel Eliab.';
 
 const double kPassDelta = 0.08;
 const double kNeutralizeDelta = 0.25;

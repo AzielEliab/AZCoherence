@@ -25,9 +25,9 @@ This document is the specification implemented by the `azcoherence`
 Python package and the Cloudflare Worker (v0.1.0). Forks are welcome
 and always allowed.
 
-AZCoherence does **not** merge [AZ-CLCE](https://github.com/AzielEliab/az-clce)
-(R/D/P inconsistency, not intent) and is **not** AKM-TRIAD-1.0 (LIVE
-fabric memory on aziel-runtime — not a Softwares slug). It cites
+AZCoherence stays a separate product from [AZ-CLCE](https://github.com/AzielEliab/az-clce)
+(R/D/P inconsistency, not intent) and cites AKM-TRIAD-1.0 as LIVE
+fabric memory on aziel-runtime. It cites
 [aziel-runtime](https://github.com/AzielEliab/aziel-runtime) FragGate
 (`/v1/fraggate/*`, `/v1/software`, `/mcp`) as THE single door,
 [AZInterface](https://github.com/AzielEliab/azinterface) as custodial
@@ -131,7 +131,7 @@ enables. Default OFF.
 
 ## 7. Identity
 
-Author: **Aziel Eliab** only. Aziel Elroi Eliab is an allowed SEO aka.
+Author: **Aziel Eliab** only.
 Forks are welcome and always allowed. Apache-2.0.
 
 No Zenodo DOI is invented here.

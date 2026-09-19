@@ -7,7 +7,6 @@ prevent, neutralize, or eliminate AI hallucination in scoring
 Never invent evidence. **Confidence is not truth.**
 
 **Author:** Aziel Eliab only  
-**Also in SEO:** Aziel Elroi Eliab  
 **Date:** September 2026 · v0.1.0  
 **License:** [Apache-2.0](LICENSE)  
 **Class:** Plain · slug `azcoherence` · spec AZC-WP-0.1
@@ -51,7 +50,7 @@ The Worker serves the gzip itself (HTTP 200, no 302 to GitHub).
 - One-click install: [https://azcoherence-download-tracker.vibelock.workers.dev/install.sh](https://azcoherence-download-tracker.vibelock.workers.dev/install.sh)
 - Skill: [https://azcoherence-download-tracker.vibelock.workers.dev/v1/skill](https://azcoherence-download-tracker.vibelock.workers.dev/v1/skill)
 - FragGate proxy: [list](https://azcoherence-download-tracker.vibelock.workers.dev/v1/fraggate/list) · describe · [call](https://azcoherence-download-tracker.vibelock.workers.dev/v1/fraggate/call) via AZIEL_RUNTIME
-- Suite mesh proxy: [https://azcoherence-download-tracker.vibelock.workers.dev/v1/mesh](https://azcoherence-download-tracker.vibelock.workers.dev/v1/mesh) — default OFF; GET never enables; product-local `mesh_enable` is stub/REFUSE; QNM live / locked / isolated; QNS-CD-1.0 hub cite (photon QNS1; local qnsd in [qnm-node](https://github.com/AzielEliab/qnm-node); runtime catalog in [aziel-runtime](https://github.com/AzielEliab/aziel-runtime)). Not a Softwares-tab product. No public qnsd proxy.
+- Suite mesh proxy: [https://azcoherence-download-tracker.vibelock.workers.dev/v1/mesh](https://azcoherence-download-tracker.vibelock.workers.dev/v1/mesh) — default OFF; GET never enables; product-local `mesh_enable` is stub/REFUSE; QNM live / locked / isolated; QNS-CD-1.0 hub cite / Worker mesh cross-map (photon QNS1; local qnsd in [qnm-node](https://github.com/AzielEliab/qnm-node); runtime catalog in [aziel-runtime](https://github.com/AzielEliab/aziel-runtime)). No public qnsd proxy.
 - Worker MCP: [https://azcoherence-download-tracker.vibelock.workers.dev/mcp](https://azcoherence-download-tracker.vibelock.workers.dev/mcp) — GET docs / POST JSON-RPC (health/skill/doctor/verify/review_triad)
 - OpenAPI: [https://azcoherence-download-tracker.vibelock.workers.dev/openapi.json](https://azcoherence-download-tracker.vibelock.workers.dev/openapi.json)
 - GitHub: [https://github.com/AzielEliab/AZCoherence](https://github.com/AzielEliab/AZCoherence)
@@ -112,7 +111,7 @@ flutter pub get
 flutter run
 ```
 
-The `android/` and `ios/` folders in this tree are skeleton READMEs until you run `flutter create .` (this machine has no Flutter SDK on PATH). Then open `android/` in Android Studio or `ios/Runner.xcworkspace` in Xcode. Not a store listing.
+The `android/` and `ios/` folders in this tree are skeleton READMEs until you run `flutter create .` (this machine has no Flutter SDK on PATH). Then open `android/` in Android Studio or `ios/Runner.xcworkspace` in Xcode.
 
 ## What it does
 
@@ -126,14 +125,14 @@ claim+score and an **alternate independent path**, then emits a receipt:
 | NEUTRALIZE | Large split or high-confidence-without-evidence (hallucination pattern). Treat the primary score as non-authoritative. |
 | REFUSE | Missing claim/scores, or a stub verb. |
 
-It does **not** invent citations. It does **not** publish a score as
-truth. It does **not** rewrite history.
+Evidence is operator-provided. Receipts stay advisory. History is
+forward-only.
 
 ## Peers (do not merge)
 
 - [aziel-runtime](https://github.com/AzielEliab/aziel-runtime) FragGate — THE single door. Catalog paths: `/v1/fraggate/list`, `/v1/fraggate/describe`, `/v1/fraggate/call`, `/v1/software`, `/mcp`. Kernel: [fraggate](https://github.com/AzielEliab/fraggate). This Worker `/v1/fraggate/*` PROXY via `AZIEL_RUNTIME`.
 - [AZ-CLCE](https://github.com/AzielEliab/az-clce) / slug `azclce` — peer scorer, **separate product**. R/D/P inconsistency, not intent. Worker: https://azclce-download-tracker.vibelock.workers.dev/
-- **AKM-TRIAD-1.0** — fabric neighbor only. LIVE memory on aziel-runtime (`memory_*`). Not a Softwares slug. Posterior ≠ truth. Cite; do not merge.
+- **AKM-TRIAD-1.0** — fabric neighbor only. LIVE memory on aziel-runtime (`memory_*`). Posterior is advisory. Cite; do not merge.
 - [AZInterface](https://github.com/AzielEliab/azinterface) — custodial operating environment (AIH page cycles / pair custody). Worker: https://azinterface-download-tracker.vibelock.workers.dev/
 - Softwares hubs: [azieleliab.com](https://www.azieleliab.com/) · [azielcorpuslibrary.net](https://www.azielcorpuslibrary.net/) · [godlock.uk](https://godlock.uk/)
 
@@ -183,14 +182,13 @@ Works with ChatGPT (GPT Actions / OpenAI), Grok (xAI), Venice, Claude (Anthropic
 - Catalog OpenAPI: https://aziel-runtime.vibelock.workers.dev/openapi.json
 - Catalog MCP: `POST https://aziel-runtime.vibelock.workers.dev/mcp` (FragGate slug `azcoherence`)
 
-Agents use this Worker `/mcp` (thin doubles of health/skill/doctor/verify/review_triad/alternate_score/coherence_check/neutralize_hallucination) or OpenAPI/MCP via aziel-runtime. This Worker `/v1/fraggate/*` and `/v1/mesh/*` PROXY via AZIEL_RUNTIME. Humans use the complete Worker UI (catalog labels plus Live Nodes strip). Dual surface: do not gut the human UI. Suite mesh default OFF. GET `/v1/mesh` never enables. Product-local `mesh_enable` is stub/REFUSE. QNM-BUILD-1.0 live|locked|isolated. QNS-CD-1.0 photon QNS1 packet transfer is a hub cite / Worker mesh cross-map only (local qnsd in [qnm-node](https://github.com/AzielEliab/qnm-node); runtime cites in [aziel-runtime](https://github.com/AzielEliab/aziel-runtime)). Not a Softwares-tab product. No Node Gate. No public qnsd proxy. No auto-heal. Not anonymity. Catalog MCP `mesh_*` + FragGate `slug=mesh`. Anon-broadcast is not a publish path.
+Agents use this Worker `/mcp` (thin doubles of health/skill/doctor/verify/review_triad/alternate_score/coherence_check/neutralize_hallucination) or OpenAPI/MCP via aziel-runtime. This Worker `/v1/fraggate/*` and `/v1/mesh/*` PROXY via AZIEL_RUNTIME. Humans use the complete Worker UI (catalog labels plus Live Nodes strip). Dual surface: do not gut the human UI. Suite mesh default OFF. GET `/v1/mesh` never enables. Product-local `mesh_enable` is stub/REFUSE. QNM-BUILD-1.0 live|locked|isolated. QNS-CD-1.0 photon QNS1 packet transfer is a hub cite / Worker mesh cross-map (local qnsd in [qnm-node](https://github.com/AzielEliab/qnm-node); runtime cites in [aziel-runtime](https://github.com/AzielEliab/aziel-runtime)). No Node Gate. No public qnsd proxy. No auto-heal. Identity-bearing QNM mesh. Catalog MCP `mesh_*` + FragGate `slug=mesh`. Anon-broadcast emits a SHA-256 receipt.
 
 Always send `User-Agent: Mozilla/5.0`.
 
 ## Honest banner
 
-THIS IS: an advisory coherence reviewer (AZC-WP-0.1).
-THIS IS NOT: AZ-CLCE, AKM-TRIAD-1.0, a truth verdict, a citation inventor, a history rewrite, or publish-as-truth. Confidence is not truth. Never invent evidence. Author Aziel Eliab only.
+THIS IS: an advisory coherence reviewer (AZC-WP-0.1). Primary triad/claim+score versus an alternate independent path. Receipts are PASS / FLAG / NEUTRALIZE / REFUSE. Confidence is not truth. Never invent evidence. Author Aziel Eliab only.
 
 Cite the GitHub repository and this Worker. No Zenodo DOI is invented here (placeholder until a software deposit exists).
 
@@ -198,7 +196,7 @@ Apache-2.0. Forks are welcome and always allowed.
 
 ## Catalog + local UI
 
-Author: **Aziel Eliab**. Honest scope: coherence review, not truth.
+Author: **Aziel Eliab**. Honest scope: advisory coherence review. Confidence is not truth.
 
 - Product homepage (workspace + counted download): https://azcoherence-download-tracker.vibelock.workers.dev/
 - Catalog product (when listed): https://aziel-runtime.vibelock.workers.dev/p/azcoherence/

@@ -36,7 +36,7 @@ def test_peers_not_merged() -> None:
     assert "Do not merge" in readme or "do not merge" in readme
     assert "az-clce" in readme
     assert "AKM-TRIAD-1.0" in readme
-    assert "not a Softwares slug" in readme or "Not a Softwares slug" in readme
+    assert "fabric neighbor" in readme or "cite only" in readme
     assert "AZInterface" in readme
     assert "azieleliab.com" in readme
     assert "/v1/software" in readme
