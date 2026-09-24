@@ -17,9 +17,11 @@ def test_page_is_human_and_themeable() -> None:
     assert 'id="advanced"' in html
     assert 'id="review"' in html
     assert "__HONEST_JSON__" not in html
-    assert html.index('id="advanced"') < html.index('id="alternate"')
+    assert html.index('id="advanced"') < html.index('id="review"')
+    assert "Review a score" not in html
+    assert "operator diagnostic" in html
     assert "Aziel Eliab" in html
-    assert html.index("<h1>") < html.index('id="notes"')
+    assert html.index("<h1") < html.index('id="notes"')
 
 
 def test_accept_json_only_when_asked() -> None:
@@ -46,7 +48,7 @@ def test_loopback_json_review_matches_engine() -> None:
         page = urlopen(f"http://127.0.0.1:{port}/", timeout=5)
         assert "text/html" in page.headers.get("Content-Type", "")
         body = page.read().decode("utf-8")
-        assert "Review a score" in body
+        assert "operator diagnostic" in body
 
         req = Request(f"http://127.0.0.1:{port}/", headers={"Accept": "application/json"})
         health_body = json.loads(urlopen(req, timeout=5).read().decode("utf-8"))

@@ -6,35 +6,33 @@ import re
 from typing import Any
 
 WELCOME = """\
-AZCoherence checks a score against a second path you provide and writes an advisory receipt.
+AZCoherence checks scores in the background for the suite and for scripts.
 
 Author: Aziel Eliab
 
-Next: open the local app.
-
-  azcoherence ui
-
-Or check this install:
+Receipts are PASS, FLAG, NEUTRALIZE, or REFUSE. Status is the next step.
 
   azcoherence doctor
-  azcoherence --help
+  azcoherence health
+  azcoherence health --json
 """
 
 ROOT_HELP = """\
 usage: azcoherence [--version] [--json] [--help] <command> [<args>]
 
-Check a score against a second path you provide. AZCoherence writes an
-advisory receipt: PASS, FLAG, NEUTRALIZE, or REFUSE.
+AZCoherence checks scores in the background for the suite and for scripts.
+Receipts are PASS, FLAG, NEUTRALIZE, or REFUSE.
 
 Author: Aziel Eliab
 
 Common commands:
-  ui          Open the local app (http://127.0.0.1:8871/)
-  review      Compare a claim and two scores
   doctor      Check this install
-  health      Show that AZCoherence is running
+  health      Show plain status
+  service     Listen on this computer for health and review_triad
 
 Advanced:
+  ui          Operator diagnostics page (loopback only)
+  review      Compare a claim and two scores
   alternate   Score from evidence you already have
   check       Compare two scores
   neutralize  Mark a wide split as not authoritative
@@ -44,19 +42,20 @@ Advanced:
 
 Examples:
   azcoherence
-  azcoherence ui
   azcoherence doctor
+  azcoherence health --json
+  azcoherence service
   azcoherence review --claim "login succeeds" --primary-score 0.91 \\
       --alternate-score 0.88 --primary-evidence "cite A" \\
       --alternate-evidence "cite B"
-  azcoherence health --json
 
 Run 'azcoherence <command> --help' for one command.
 """
 
 _HINTS = {
-    "azcoherence": "azcoherence ui    or    azcoherence --help",
+    "azcoherence": "azcoherence doctor    or    azcoherence --help",
     "ui": "azcoherence ui",
+    "service": "azcoherence service",
     "review": (
         'azcoherence review --claim "login succeeds" --primary-score 0.91 '
         '--alternate-score 0.88 --primary-evidence "cite A" --alternate-evidence "cite B"'
@@ -81,6 +80,7 @@ _REASONS = {
     "stub": "stub needs one of: history_rewrite, invent_citations, publish_as_truth, mesh_enable.",
     "review": "review needs the claim and scores you already have.",
     "ui": "ui takes an optional port on this computer.",
+    "service": "service takes an optional port on this computer.",
 }
 
 
@@ -88,7 +88,7 @@ def usage_error(message: str, prog: str) -> str:
     cmd = (prog or "azcoherence").split()[-1]
     choice = re.search(r"invalid choice: '([^']*)'", message or "")
     if choice and cmd in {"azcoherence", "cmd"}:
-        return f'Unknown command "{choice.group(1)}".\nTry: azcoherence ui    or    azcoherence --help\n'
+        return f'Unknown command "{choice.group(1)}".\nTry: azcoherence doctor    or    azcoherence --help\n'
     if choice:
         return f'Unknown value "{choice.group(1)}".\nTry: {_HINTS.get(cmd, _HINTS["azcoherence"])}\n'
     unknown = re.search(r"unrecognized arguments?: (.+)", message or "")
@@ -129,10 +129,10 @@ def _health(data: dict[str, Any]) -> str:
         f"Spec: {data.get('spec')}\n"
         f"Author: {data.get('author')}\n"
         "\n"
-        "Ready to review a claim you provide. Confidence is not truth.\n"
+        "Coherence answers when the suite or a script calls it. Confidence is not truth.\n"
         "\n"
-        "Next: azcoherence ui\n"
-        "      azcoherence doctor\n"
+        "Next: azcoherence doctor\n"
+        "      azcoherence health --json\n"
     )
 
 
@@ -150,7 +150,7 @@ def _doctor(data: dict[str, Any]) -> str:
     note = str(data.get("note") or "").strip()
     if note:
         lines.append(note)
-    lines.append("Next: azcoherence ui")
+    lines.append("Next: azcoherence health --json")
     lines.append("")
     return "\n".join(lines)
 
@@ -189,7 +189,7 @@ def _verdict(data: dict[str, Any]) -> str:
     if receipt.get("receipt_hash"):
         lines.append(f"Receipt hash: {receipt['receipt_hash']}")
     lines.append("")
-    lines.append("Next: azcoherence ui")
+    lines.append("Next: azcoherence health --json")
     lines.append("")
     return "\n".join(lines)
 

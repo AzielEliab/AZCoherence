@@ -1,9 +1,11 @@
 AZCoherence
 Author: Aziel Eliab
 
-1. python -m venv .venv && . .venv/bin/activate && pip install -e .
-2. azcoherence ui
-3. Open http://127.0.0.1:8871/ and choose Review.
+Coherence checks scores in the background for the suite and for scripts.
 
-Help: azcoherence --help
-JSON for scripts: azcoherence health --json
+1. python -m venv .venv && . .venv/bin/activate && pip install -e .
+2. azcoherence doctor
+3. azcoherence health --json
+
+Background listener: azcoherence service
+Operator diagnostic: azcoherence ui

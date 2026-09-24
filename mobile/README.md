@@ -1,6 +1,6 @@
 # AZCoherence — iPhone & Android
 
-Check a score against a second path you provide. The receipt is advisory.
+Coherence runs in the background for the suite. This phone screen is a local diagnostic.
 
 Author: Aziel Eliab. Offline. No analytics. Light and dark follow the system.
 

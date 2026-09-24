@@ -24,7 +24,9 @@ def test_cli_health_json_matches_engine(capsys) -> None:
 def test_cli_bare_welcome(capsys) -> None:
     assert main([]) == 0
     out = capsys.readouterr().out
-    assert "azcoherence ui" in out
+    assert "azcoherence doctor" in out
+    assert "azcoherence health --json" in out
+    assert "open the local app" not in out.lower()
     assert "Aziel Eliab" in out
     assert "the following arguments are required" not in out
 
@@ -33,8 +35,10 @@ def test_cli_help(capsys) -> None:
     assert main(["--help"]) == 0
     out = capsys.readouterr().out
     assert "Examples:" in out
-    assert "azcoherence ui" in out
+    assert "azcoherence doctor" in out
     assert "Advanced:" in out
+    assert out.index("Advanced:") < out.index("\n  ui")
+    assert "open the local app" not in out.lower()
     assert "changelog" not in out.lower()
 
 
@@ -42,6 +46,7 @@ def test_cli_unknown_command(capsys) -> None:
     assert main(["bogus"]) == 2
     err = capsys.readouterr().err
     assert 'Unknown command "bogus"' in err
+    assert "azcoherence doctor" in err
     assert "azcoherence --help" in err
     assert "Traceback" not in err
 

@@ -29,6 +29,6 @@ echo
 echo "Installed AZCoherence."
 echo "Author: Aziel Eliab."
 echo
-echo "1. azcoherence ui"
-echo "2. Open http://127.0.0.1:8871/"
-echo "3. Choose Review."
+echo "1. azcoherence doctor"
+echo "2. azcoherence health --json"
+echo "3. azcoherence service    # listens on this computer"

@@ -222,10 +222,20 @@ def build_parser() -> HumanParser:
     )
     stub.add_argument("op", choices=list(STUB_OPS))
 
+    service = sub.add_parser(
+        "service",
+        parents=[json_parent],
+        help="Listen on this computer for health and review_triad.",
+        description="Listen on 127.0.0.1 until you stop it. Serves health, doctor, and review_triad.",
+        epilog="example:\n  azcoherence service\n",
+    )
+    service.add_argument("--host", default="127.0.0.1")
+    service.add_argument("--port", type=int, default=8871)
+
     ui = sub.add_parser(
         "ui",
-        help="Open the local app on this computer.",
-        description="Open the local app. Binds to 127.0.0.1 only.",
+        help="Operator diagnostics page on this computer.",
+        description="Operator diagnostics. Binds to 127.0.0.1 only. Same listener as service.",
         epilog="example:\n  azcoherence ui\n",
     )
     ui.add_argument("--host", default="127.0.0.1")
@@ -330,22 +340,28 @@ def main(argv: list[str] | None = None) -> int:
             return _emit(verify_receipt(body), machine)
         if args.cmd == "stub":
             return _emit(dispatch(args.op, {}), machine)
-        if args.cmd == "ui":
+        if args.cmd in {"ui", "service"}:
             from azcoherence.ui import serve
 
+            if args.cmd == "service":
+                banner = "AZCoherence listening on http://{host}:{port}/"
+                retry = "azcoherence service --port 8872"
+            else:
+                banner = "Diagnostics http://{host}:{port}/"
+                retry = "azcoherence ui --port 8872"
             try:
-                serve(host=args.host, port=args.port)
+                serve(host=args.host, port=args.port, banner=banner)
             except OSError as exc:
                 if exc.errno == errno.EADDRINUSE:
                     message = f"Port {args.port} is already in use."
                 else:
-                    message = f"Could not open the local app on port {args.port}."
-                return _fail(message, False, next_step="azcoherence ui --port 8872")
+                    message = f"Could not listen on port {args.port}."
+                return _fail(message, False, next_step=retry)
             except ValueError:
                 return _fail(
-                    "The local app binds to this computer only (127.0.0.1).",
+                    "The listener binds to this computer only (127.0.0.1).",
                     False,
-                    next_step="azcoherence ui",
+                    next_step="azcoherence service",
                 )
             return 0
     except AzCoherenceError as exc:

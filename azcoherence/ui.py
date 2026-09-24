@@ -197,34 +197,35 @@ PAGE = r"""<!DOCTYPE html>
 <body>
   <div class="wrap">
     <p class="product">AZCoherence</p>
-    <h1>Review a score</h1>
-    <p class="lede">Check it against a second path you provide. You get an advisory receipt.</p>
-    <form id="review-form">
-      <label for="claim">Claim</label>
-      <textarea id="claim" name="claim" placeholder="The claim that was scored"></textarea>
-      <label for="primary_score">Primary score <span class="hint">0 to 1, or 0 to 100</span></label>
-      <input id="primary_score" name="primary_score" type="number" inputmode="decimal" step="0.01" placeholder="0.91">
-      <label for="alternate_score">Alternate score <span class="hint">Leave blank to compute it from evidence you provide</span></label>
-      <input id="alternate_score" name="alternate_score" type="number" inputmode="decimal" step="0.01" placeholder="0.88">
-      <label for="primary_evidence">Primary evidence <span class="hint">Citations you already have, separated by commas</span></label>
-      <input id="primary_evidence" name="primary_evidence" type="text" placeholder="Citation you already have">
-      <label for="alternate_evidence">Alternate evidence <span class="hint">Required when the alternate score is blank</span></label>
-      <input id="alternate_evidence" name="alternate_evidence" type="text" placeholder="Citation you already have">
-      <div class="actions">
-        <button type="submit" class="primary" id="review">Review</button>
-        <button type="button" class="ghost" id="doctor">Doctor</button>
-      </div>
-    </form>
-    <p id="empty">Enter a claim and the evidence you have, then Review.</p>
-    <section id="result" hidden aria-live="polite"></section>
+    <h1 id="title">Status</h1>
+    <p class="lede">Coherence answers health and review_triad for the suite and for scripts. This page is an operator diagnostic.</p>
+    <section id="result" aria-live="polite">
+      <h2>Checking</h2>
+      <p>Reading health on this computer.</p>
+    </section>
+    <div class="actions">
+      <button type="button" class="primary" id="doctor">Doctor</button>
+    </div>
+    <p id="empty" hidden></p>
     <details id="advanced">
       <summary>Advanced</summary>
-      <div class="stack">
+      <form id="review-form">
+        <label for="claim">Claim</label>
+        <textarea id="claim" name="claim" placeholder="The claim that was scored"></textarea>
+        <label for="primary_score">Primary score <span class="hint">0 to 1, or 0 to 100</span></label>
+        <input id="primary_score" name="primary_score" type="number" inputmode="decimal" step="0.01" placeholder="0.91">
+        <label for="alternate_score">Alternate score <span class="hint">Leave blank to compute it from evidence you provide</span></label>
+        <input id="alternate_score" name="alternate_score" type="number" inputmode="decimal" step="0.01" placeholder="0.88">
+        <label for="primary_evidence">Primary evidence <span class="hint">Citations you already have, separated by commas</span></label>
+        <input id="primary_evidence" name="primary_evidence" type="text" placeholder="Citation you already have">
+        <label for="alternate_evidence">Alternate evidence <span class="hint">Required when the alternate score is blank</span></label>
+        <input id="alternate_evidence" name="alternate_evidence" type="text" placeholder="Citation you already have">
         <label for="primary_path">Primary path</label>
         <input id="primary_path" type="text" value="primary">
         <label for="alternate_path">Alternate path</label>
         <input id="alternate_path" type="text" value="independent">
         <div class="actions">
+          <button type="submit" class="ghost" id="review">Review</button>
           <button type="button" class="ghost" id="alternate">Alternate score</button>
           <button type="button" class="ghost" id="check">Coherence check</button>
           <button type="button" class="ghost" id="neutralize">Neutralize</button>
@@ -233,7 +234,7 @@ PAGE = r"""<!DOCTYPE html>
           <button type="button" class="ghost" id="skill">Skill</button>
           <button type="button" class="linkish" id="fill">Fill example</button>
         </div>
-      </div>
+      </form>
     </details>
     <details id="notes">
       <summary>Notes</summary>
@@ -242,7 +243,7 @@ PAGE = r"""<!DOCTYPE html>
     </details>
     <footer>Author: Aziel Eliab. This page stays on this computer.</footer>
   </div>
-  <noscript>Start with a claim and choose Review. JavaScript runs the check on this computer.</noscript>
+  <noscript>Status is <code>azcoherence doctor</code>. This diagnostic page reads health with JavaScript.</noscript>
   <script>
     var HONEST = __HONEST_JSON__;
     document.getElementById("honest").textContent = HONEST;
@@ -322,9 +323,16 @@ PAGE = r"""<!DOCTYPE html>
       el.hidden = false;
       el.className = tone;
       document.getElementById("empty").hidden = true;
-      el.scrollIntoView({ block: "nearest" });
+      var pageTitle = titleFor(data);
+      if (pageTitle === "Running" || pageTitle === "Doctor passed") {
+        document.getElementById("title").textContent = "Running";
+      } else if (pageTitle === "Doctor failed" || (data && data.ok === false && !data.verdict)) {
+        document.getElementById("title").textContent = "Quiet";
+      }
+      var headingText = pageTitle;
+      if (!data || (data.ok === false && !data.verdict)) headingText = "Quiet";
       var heading = document.createElement("h2");
-      heading.textContent = titleFor(data);
+      heading.textContent = headingText;
       var copy = document.createElement("p");
       copy.style.whiteSpace = "pre-wrap";
       copy.textContent = bodyFor(data);
@@ -387,6 +395,9 @@ PAGE = r"""<!DOCTYPE html>
       document.getElementById("primary_path").value = "primary";
       document.getElementById("alternate_path").value = "independent";
     };
+    api("/v1/health").then(show).catch(function () {
+      show({ ok: false, error: "Quiet. Health did not answer on this computer." });
+    });
   </script>
 </body>
 </html>
@@ -470,11 +481,12 @@ class Handler(BaseHTTPRequestHandler):
             self._json({"ok": False, "error": str(exc)}, 400)
 
 
-def serve(host: str = DEFAULT_HOST, port: int = DEFAULT_PORT) -> None:
+def serve(host: str = DEFAULT_HOST, port: int = DEFAULT_PORT, banner: str | None = None) -> None:
     if host not in LOOPBACK:
         raise ValueError("AZCoherence UI binds loopback only")
     httpd = ThreadingHTTPServer((host, port), Handler)
-    print(f"Open http://{host}:{port}/")
+    line = banner or "Diagnostics http://{host}:{port}/"
+    print(line.format(host=host, port=port))
     try:
         httpd.serve_forever()
     except KeyboardInterrupt:

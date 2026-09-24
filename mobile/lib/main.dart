@@ -8,8 +8,8 @@ void main() {
 }
 
 const String lede =
-    'Check a score against a second path you provide. The receipt is advisory. '
-    'Confidence is not truth.';
+    'Coherence runs in the background for the suite. '
+    'Status on this phone: a check stays on the device.';
 
 const String about =
     'Receipts are PASS, FLAG, NEUTRALIZE, or REFUSE. Evidence must be provided. '
@@ -126,8 +126,13 @@ class _FormPageState extends State<FormPage> {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
+          Text('On this phone', style: Theme.of(context).textTheme.headlineSmall),
+          const SizedBox(height: 8),
           Text(lede, style: Theme.of(context).textTheme.titleMedium),
           const SizedBox(height: 16),
+          ExpansionTile(
+            title: const Text('Diagnostics'),
+            children: [
           TextField(
             controller: _claim,
             maxLines: 3,
@@ -156,6 +161,8 @@ class _FormPageState extends State<FormPage> {
             Text(_explain(_verdict!)),
             if (_delta != null) Text('Difference ${_delta!.toStringAsFixed(4)}'),
           ],
+            ],
+          ),
           const SizedBox(height: 16),
           const ExpansionTile(
             title: Text('Notes'),
