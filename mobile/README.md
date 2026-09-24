@@ -1,14 +1,12 @@
 # AZCoherence — iPhone & Android
 
-Primary claim+score versus an alternate independent path. Verdict
-PASS / FLAG / NEUTRALIZE / REFUSE. Never invent evidence.
-Confidence is not truth.
+Check a score against a second path you provide. The receipt is advisory.
 
-Offline. No analytics. Dark matte / gold.
+Author: Aziel Eliab. Offline. No analytics. Light and dark follow the system.
 
 Application id: `com.azieeliab.azcoherence`
 
-## Open in Android Studio / Xcode
+## Start
 
 The `android/` and `ios/` folders here are skeleton READMEs because
 this tree was written without the Flutter SDK on PATH.
@@ -23,10 +21,11 @@ flutter run
 Then open `android/` in Android Studio, or `ios/Runner.xcworkspace` in
 Xcode.
 
-## Honest scope
+## Notes
 
-Advisory coherence review only. Not AZ-CLCE. Not AKM-TRIAD-1.0.
-Not a truth verdict. Author: Aziel Eliab only.
+Receipts are PASS, FLAG, NEUTRALIZE, or REFUSE. Evidence must be provided.
+Confidence is not truth. AZ-CLCE and AKM-TRIAD-1.0 stay separate.
+Author: Aziel Eliab only.
 
 ## Desktop package (counted download)
 

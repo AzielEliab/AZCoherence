@@ -1,0 +1,9 @@
+AZCoherence
+Author: Aziel Eliab
+
+1. python -m venv .venv && . .venv/bin/activate && pip install -e .
+2. azcoherence ui
+3. Open http://127.0.0.1:8871/ and choose Review.
+
+Help: azcoherence --help
+JSON for scripts: azcoherence health --json
