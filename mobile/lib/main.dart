@@ -7,11 +7,13 @@ void main() {
   runApp(const AzCoherenceApp());
 }
 
-const String limitation =
-    'AZCoherence reviews a primary triad/claim+score against an alternate '
-    'independent path. Receipts are PASS / FLAG / NEUTRALIZE / REFUSE. '
-    'Never invent evidence. Confidence is not truth. Not AZ-CLCE. '
-    'Not AKM-TRIAD-1.0. Advisory only. Author: Aziel Eliab.';
+const String lede =
+    'Coherence runs in the background for the suite. '
+    'Status on this phone: a check stays on the device.';
+
+const String about =
+    'Receipts are PASS, FLAG, NEUTRALIZE, or REFUSE. Evidence must be provided. '
+    'AZ-CLCE and AKM-TRIAD-1.0 stay separate. Author: Aziel Eliab.';
 
 const double kPassDelta = 0.08;
 const double kNeutralizeDelta = 0.25;
@@ -38,6 +40,34 @@ String decide(double? primary, double? alternate, bool pe, bool ae, String claim
   return 'PASS';
 }
 
+String _plainVerdict(String verdict) {
+  switch (verdict) {
+    case 'PASS':
+      return 'Pass';
+    case 'FLAG':
+      return 'Flag';
+    case 'NEUTRALIZE':
+      return 'Neutralize';
+    case 'REFUSE':
+      return 'Refused';
+    default:
+      return verdict;
+  }
+}
+
+String _explain(String verdict) {
+  switch (verdict) {
+    case 'PASS':
+      return 'These scores agree. The receipt is advisory. Confidence is not truth.';
+    case 'FLAG':
+      return 'The scores differ, or the evidence is thin. Confidence is not truth.';
+    case 'NEUTRALIZE':
+      return 'The scores split widely. Treat the primary score as not authoritative.';
+    default:
+      return 'Add a claim and both scores. Confidence is not truth.';
+  }
+}
+
 class AzCoherenceApp extends StatelessWidget {
   const AzCoherenceApp({super.key});
 
@@ -46,7 +76,9 @@ class AzCoherenceApp extends StatelessWidget {
     return MaterialApp(
       title: 'AZCoherence',
       debugShowCheckedModeBanner: false,
-      theme: buildAppTheme(),
+      theme: buildLightTheme(),
+      darkTheme: buildDarkTheme(),
+      themeMode: ThemeMode.system,
       home: const FormPage(),
     );
   }
@@ -60,11 +92,11 @@ class FormPage extends StatefulWidget {
 }
 
 class _FormPageState extends State<FormPage> {
-  final _claim = TextEditingController(text: 'login succeeds');
-  final _ps = TextEditingController(text: '0.91');
-  final _as = TextEditingController(text: '0.88');
-  final _pe = TextEditingController(text: 'operator-provided cite A');
-  final _ae = TextEditingController(text: 'operator-provided cite B');
+  final _claim = TextEditingController();
+  final _ps = TextEditingController();
+  final _as = TextEditingController();
+  final _pe = TextEditingController();
+  final _ae = TextEditingController();
   String? _verdict;
   double? _delta;
 
@@ -94,37 +126,53 @@ class _FormPageState extends State<FormPage> {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          Text(
-            'Coherence reviewer. Confidence is not truth.',
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  color: kGold,
-                  fontStyle: FontStyle.italic,
-                ),
-          ),
+          Text('On this phone', style: Theme.of(context).textTheme.headlineSmall),
           const SizedBox(height: 8),
-          const Text(limitation),
+          Text(lede, style: Theme.of(context).textTheme.titleMedium),
           const SizedBox(height: 16),
-          TextField(controller: _claim, maxLines: 3, decoration: const InputDecoration(labelText: 'Claim')),
+          ExpansionTile(
+            title: const Text('Diagnostics'),
+            children: [
+          TextField(
+            controller: _claim,
+            maxLines: 3,
+            decoration: const InputDecoration(labelText: 'Claim', hintText: 'The claim that was scored'),
+          ),
           const SizedBox(height: 12),
-          TextField(controller: _ps, decoration: const InputDecoration(labelText: 'Primary score')),
+          TextField(controller: _ps, decoration: const InputDecoration(labelText: 'Primary score', hintText: '0.91')),
           const SizedBox(height: 12),
-          TextField(controller: _as, decoration: const InputDecoration(labelText: 'Alternate score')),
+          TextField(controller: _as, decoration: const InputDecoration(labelText: 'Alternate score', hintText: '0.88')),
           const SizedBox(height: 12),
-          TextField(controller: _pe, decoration: const InputDecoration(labelText: 'Primary evidence (never invented)')),
+          TextField(
+            controller: _pe,
+            decoration: const InputDecoration(labelText: 'Primary evidence', hintText: 'Citation you already have'),
+          ),
           const SizedBox(height: 12),
-          TextField(controller: _ae, decoration: const InputDecoration(labelText: 'Alternate evidence')),
+          TextField(
+            controller: _ae,
+            decoration: const InputDecoration(labelText: 'Alternate evidence', hintText: 'Citation you already have'),
+          ),
           const SizedBox(height: 16),
-          FilledButton(onPressed: _run, child: const Text('Review triad')),
+          FilledButton(onPressed: _run, child: const Text('Review')),
           if (_verdict != null) ...[
             const SizedBox(height: 16),
-            Text(
-              _verdict!,
-              style: const TextStyle(fontSize: 42, fontWeight: FontWeight.w700, color: kGold, height: 1),
-            ),
-            if (_delta != null) Text('delta ${_delta!.toStringAsFixed(4)}'),
-            const SizedBox(height: 8),
-            const Text(limitation, style: TextStyle(fontSize: 12)),
+            Text(_plainVerdict(_verdict!), style: Theme.of(context).textTheme.headlineSmall),
+            const SizedBox(height: 4),
+            Text(_explain(_verdict!)),
+            if (_delta != null) Text('Difference ${_delta!.toStringAsFixed(4)}'),
           ],
+            ],
+          ),
+          const SizedBox(height: 16),
+          const ExpansionTile(
+            title: Text('Notes'),
+            children: [
+              Padding(
+                padding: EdgeInsets.fromLTRB(16, 0, 16, 12),
+                child: Text(about),
+              ),
+            ],
+          ),
         ],
       ),
     );

@@ -95,11 +95,11 @@ Works with ChatGPT (GPT Actions / OpenAI), Grok (xAI), Venice, Claude (Anthropic
 
 \`\`\`bash
 curl -fsSL https://azcoherence-download-tracker.vibelock.workers.dev/install.sh | bash
-azcoherence ui
 azcoherence doctor
+azcoherence health --json
 \`\`\`
 
-Then open http://127.0.0.1:8871 (this computer only).
+`azcoherence service` listens on this computer for health and review_triad. `azcoherence ui` is an operator diagnostic at http://127.0.0.1:8871/.
 
 ## Honest banner
 
