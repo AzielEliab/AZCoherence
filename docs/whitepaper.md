@@ -124,8 +124,9 @@ enables. Default OFF.
    `POST https://aziel-runtime.vibelock.workers.dev/mcp` slug
    `azcoherence`. Worker `POST /mcp` is a thin double. No technical MCP
    chrome as the product.
-2. **Human** — complete Worker UI, Flutter `mobile/`, counted
-   `/download` tarball, local `azcoherence ui`.
+2. **Human** — this package prints status (`azcoherence`, `doctor`, `health`).
+   `azcoherence ui` is an operator diagnostic. Suite status belongs on
+   AZInterface. The Worker homepage is a separate surface.
 
 ---
 

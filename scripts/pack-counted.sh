@@ -14,7 +14,7 @@ NAME="azcoherence-${VERSION}"
 DEST="${STAGE}/${NAME}"
 mkdir -p "$DEST"
 for item in azcoherence tests docs examples mobile workers SKILL.md README.md \
-  CONTRIBUTING.md LICENSE MANIFEST.in pyproject.toml install.sh scripts; do
+  RUN.txt CONTRIBUTING.md LICENSE MANIFEST.in pyproject.toml install.sh scripts; do
   if [ -e "$item" ]; then
     cp -a "$item" "$DEST/"
   fi

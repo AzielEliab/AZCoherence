@@ -1,50 +1,73 @@
 import 'package:flutter/material.dart';
 
-/// Matte black + gold Material 3 dark theme. No analytics.
-const Color kMatteBlack = Color(0xFF0B0B0B);
-const Color kSurface = Color(0xFF141414);
+/// System light/dark. Gold focus. No analytics.
 const Color kGold = Color(0xFFC9A227);
-const Color kGoldDim = Color(0xFF8A7219);
+const Color kGoldInk = Color(0xFF1C1608);
 const Color kIvory = Color(0xFFE8E0D0);
+const Color kMatteBlack = Color(0xFF100F0C);
+const Color kSurface = Color(0xFF1B1A16);
+const Color kPaper = Color(0xFFF7F4EC);
+const Color kPaperCard = Color(0xFFFFFDF8);
+const Color kInk = Color(0xFF1C1915);
 
-ThemeData buildAppTheme() {
+ThemeData buildLightTheme() {
+  const scheme = ColorScheme.light(
+    primary: Color(0xFF8A6A12),
+    onPrimary: kGoldInk,
+    secondary: kGold,
+    onSecondary: kGoldInk,
+    surface: kPaperCard,
+    onSurface: kInk,
+    error: Color(0xFF8D2A24),
+    onError: Colors.white,
+  );
+  return _base(scheme, kPaper);
+}
+
+ThemeData buildDarkTheme() {
   const scheme = ColorScheme.dark(
-    brightness: Brightness.dark,
     primary: kGold,
-    onPrimary: kMatteBlack,
-    secondary: kGoldDim,
-    onSecondary: kIvory,
+    onPrimary: kGoldInk,
+    secondary: Color(0xFFE6C65A),
+    onSecondary: kGoldInk,
     surface: kSurface,
     onSurface: kIvory,
-    error: Color(0xFFB54A4A),
-    onError: kIvory,
+    error: Color(0xFFFFB4AB),
+    onError: kMatteBlack,
   );
+  return _base(scheme, kMatteBlack);
+}
+
+ThemeData buildAppTheme() => buildDarkTheme();
+
+ThemeData _base(ColorScheme scheme, Color canvas) {
   return ThemeData(
     useMaterial3: true,
-    brightness: Brightness.dark,
     colorScheme: scheme,
-    scaffoldBackgroundColor: kMatteBlack,
-    appBarTheme: const AppBarTheme(
-      backgroundColor: kMatteBlack,
-      foregroundColor: kGold,
+    scaffoldBackgroundColor: canvas,
+    focusColor: kGold,
+    hoverColor: const Color(0x14C9A227),
+    appBarTheme: AppBarTheme(
+      backgroundColor: canvas,
+      foregroundColor: scheme.onSurface,
       elevation: 0,
       centerTitle: false,
     ),
-    cardTheme: CardThemeData(
-      color: kSurface,
-      elevation: 0,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(12),
-        side: const BorderSide(color: Color(0x33C9A227)),
+    filledButtonTheme: FilledButtonThemeData(
+      style: FilledButton.styleFrom(
+        backgroundColor: kGold,
+        foregroundColor: kGoldInk,
+        minimumSize: const Size.fromHeight(48),
+        textStyle: const TextStyle(fontWeight: FontWeight.w700),
       ),
     ),
     inputDecorationTheme: InputDecorationTheme(
       filled: true,
-      fillColor: const Color(0xFF1A1A1A),
+      fillColor: scheme.surface,
       border: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
       focusedBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(10),
-        borderSide: const BorderSide(color: kGold),
+        borderSide: const BorderSide(color: kGold, width: 2),
       ),
     ),
   );

@@ -1,31 +1,26 @@
 # AZCoherence
 
-Open-source **alternate-triad coherence reviewer** — double-checks a
-primary triad / claim+score against an independent alternate path to
-prevent, neutralize, or eliminate AI hallucination in scoring
-(AZC-WP-0.1). Receipts are `PASS` / `FLAG` / `NEUTRALIZE` / `REFUSE`.
-Never invent evidence. **Confidence is not truth.**
+AZCoherence checks scores in the background for the suite and for scripts. Receipts are `PASS`, `FLAG`, `NEUTRALIZE`, or `REFUSE`.
 
 **Author:** Aziel Eliab only  
-**Date:** September 2026 · v0.1.0  
-**License:** [Apache-2.0](LICENSE)  
-**Class:** Plain · slug `azcoherence` · spec AZC-WP-0.1
+**License:** [Apache-2.0](LICENSE) · v0.1.0 · spec AZC-WP-0.1
 
-> A second path is a receipt. A score is not a fact.
+## Start
 
-See the spec: [docs/whitepaper.md](docs/whitepaper.md) ·
+1. Install: `python -m venv .venv && source .venv/bin/activate && pip install -e .`
+2. Read status: `azcoherence doctor`
+3. For scripts: `azcoherence health --json`
+
+`azcoherence service` listens on this computer for health and `review_triad`. FragGate remains the suite door. Confidence is not truth.
+
+See [RUN.txt](RUN.txt). Spec: [docs/whitepaper.md](docs/whitepaper.md) ·
 [docs/AZC-WP-0.1.md](docs/AZC-WP-0.1.md) ·
 [docs/mcp.md](docs/mcp.md).
 How to contribute: [CONTRIBUTING.md](CONTRIBUTING.md).
 
 **Forks are welcome and always allowed.**
 
-## Quick start
-
-```bash
-python -m venv .venv && source .venv/bin/activate && pip install -e ".[dev]"
-azcoherence ui
-```
+Tests use the dev extra: `pip install -e ".[dev]"`.
 
 ## One-click install
 
@@ -35,7 +30,7 @@ curl -fsSL https://azcoherence-download-tracker.vibelock.workers.dev/install.sh 
 
 The script curls the **counted** tarball from this project's Worker
 (`/download`, User-Agent `Mozilla/5.0`), extracts, makes a venv, and
-`pip install -e .`. Then run `azcoherence ui`.
+`pip install -e .`. Then run `azcoherence doctor`.
 
 Or use the live software homepage (workspace + counted download):
 https://azcoherence-download-tracker.vibelock.workers.dev/
@@ -58,7 +53,7 @@ The Worker serves the gzip itself (HTTP 200, no 302 to GitHub).
 
 Isolated counter: Worker `azcoherence-download-tracker`, KV `AZCOHERENCE_DOWNLOADS`. `/v1` does not increment downloads.
 
-Open http://127.0.0.1:8871 (loopback only). No CDN, no telemetry.
+Operator diagnostics, when started, stay on this computer. No CDN, no telemetry.
 
 ---
 
@@ -76,20 +71,23 @@ Direct tarball (also counted): [azcoherence-0.1.0.tar.gz](https://azcoherence-do
 
 ---
 
-## Local UI
+## Diagnostics
 
-`azcoherence ui` serves a loopback dashboard at http://127.0.0.1:8871
+`azcoherence ui` is an operator diagnostic on this computer, at http://127.0.0.1:8871/. It is not the start path.
 
-Binds to `127.0.0.1` only. Self-contained HTML (no CDN). Review triad /
-alternate score / coherence check / neutralize / verify / health /
-skill / doctor a local payload (catalog labels). Evidence must be
-operator-provided.
+The page shows **Running** or **Quiet**, and **Doctor** is the primary action. Review and the other calls sit under **Advanced**. The page follows the system light or dark setting. Evidence must be provided.
 
-## CLI smoke
+## Commands
+
+People see short sentences. Scripts add `--json` and get the same fields the library returns.
 
 ```bash
+azcoherence
+azcoherence --help
 azcoherence health
+azcoherence health --json
 azcoherence doctor
+azcoherence service
 azcoherence review --claim "login succeeds" --primary-score 0.91 --alternate-score 0.88 \
   --primary-evidence "operator cite A" --alternate-evidence "operator cite B"
 azcoherence alternate --claim "login succeeds" --evidence "operator cite B"
@@ -102,7 +100,7 @@ azcoherence stub mesh_enable
 
 ## iPhone & Android
 
-Flutter sources: [`mobile/`](mobile/). Application id `com.azieeliab.azcoherence`. Offline. No analytics. Dark matte / gold.
+Flutter sources: [`mobile/`](mobile/). Application id `com.azieeliab.azcoherence`. Offline. No analytics. The phone screen is a local diagnostic. Light and dark follow the system. Gold focus.
 
 ```bash
 cd mobile
@@ -186,11 +184,11 @@ Agents use this Worker `/mcp` (thin doubles of health/skill/doctor/verify/review
 
 Always send `User-Agent: Mozilla/5.0`.
 
-## Honest banner
+## Notes
 
 THIS IS: an advisory coherence reviewer (AZC-WP-0.1). Primary triad/claim+score versus an alternate independent path. Receipts are PASS / FLAG / NEUTRALIZE / REFUSE. Confidence is not truth. Never invent evidence. Author Aziel Eliab only.
 
-Cite the GitHub repository and this Worker. No Zenodo DOI is invented here (placeholder until a software deposit exists).
+Cite the GitHub repository and this Worker. No Zenodo DOI is invented here (a software deposit is still needed).
 
 Apache-2.0. Forks are welcome and always allowed.
 
@@ -206,4 +204,4 @@ Author: **Aziel Eliab**. Honest scope: advisory coherence review. Confidence is 
 - This Worker skill: `GET https://azcoherence-download-tracker.vibelock.workers.dev/v1/skill`
 - This Worker OpenAPI: https://azcoherence-download-tracker.vibelock.workers.dev/openapi.json
 
-Local UI labels match catalog: Review triad / Alternate score / Coherence check / Neutralize / Verify / Health / Skill / Doctor. Worker homepage adds the suite Live Nodes strip (`GET /v1/mesh`) with the QNS-CD-1.0 cross-map.
+Downloadable package: status from `doctor` and `health`. `azcoherence ui` is an operator diagnostic. Suite status belongs on AZInterface. Worker homepage adds the suite Live Nodes strip (`GET /v1/mesh`) with the QNS-CD-1.0 cross-map.

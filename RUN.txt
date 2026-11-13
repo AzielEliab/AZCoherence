@@ -1,0 +1,11 @@
+AZCoherence
+Author: Aziel Eliab
+
+Coherence checks scores in the background for the suite and for scripts.
+
+1. python -m venv .venv && . .venv/bin/activate && pip install -e .
+2. azcoherence doctor
+3. azcoherence health --json
+
+Background listener: azcoherence service
+Operator diagnostic: azcoherence ui

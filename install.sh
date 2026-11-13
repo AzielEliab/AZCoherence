@@ -27,6 +27,8 @@ python -m pip install -e .
 
 echo
 echo "Installed AZCoherence."
-echo "Run:  azcoherence ui"
-echo "Then open http://127.0.0.1:8871  (loopback only)"
 echo "Author: Aziel Eliab."
+echo
+echo "1. azcoherence doctor"
+echo "2. azcoherence health --json"
+echo "3. azcoherence service    # listens on this computer"
