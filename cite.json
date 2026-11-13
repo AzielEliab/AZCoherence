@@ -25,7 +25,7 @@
   "bibtex": "@software{eliab_azcoherence_2026, author = {Eliab, Aziel}, title = {AZCoherence}, version = {0.1.0}, year = {2026}, license = {Apache-2.0}, url = {https://azcoherence-download-tracker.vibelock.workers.dev/}, publisher = {GitHub}, howpublished = {\\url{https://github.com/AzielEliab/AZCoherence}}}",
   "zenodo_status": "placeholder_no_doi_invented",
   "software_deposit_needed": true,
-  "note": "No DOI is invented here. Cite GitHub and this Worker. Identity is Aziel Eliab only. Forks welcome. Peer of AZ-CLCE (azclce), not merged. Not AKM-TRIAD. FragGate is THE single door.",
+  "note": "No DOI is invented here. Cite GitHub and this Worker. Identity is Aziel Eliab only. Forks welcome. Peer of AZ-CLCE (azclce). AKM-TRIAD-1.0 fabric neighbor — cite only. FragGate is THE single door.",
   "identity": "Aziel Eliab only",
   "forks": "welcome and always allowed",
   "dual_surface": {
@@ -80,7 +80,7 @@
     "akm_triad": {
       "role": "fabric neighbor — cite only",
       "spec": "AKM-TRIAD-1.0",
-      "note": "LIVE fabric memory on aziel-runtime. Not a Softwares slug. Posterior ≠ truth. Do not merge.",
+      "note": "LIVE fabric memory on aziel-runtime. Fabric neighbor — cite only. Posterior is advisory. Do not merge.",
       "merge": false,
       "software_tab": false
     },
@@ -90,7 +90,7 @@
       "name": "AZInterface",
       "github": "https://github.com/AzielEliab/azinterface",
       "homepage": "https://azinterface-download-tracker.vibelock.workers.dev/",
-      "note": "Custodial OE / page cycles. Pair custody. Not a merge.",
+      "note": "Custodial OE / page cycles. Pair custody. Cite only.",
       "merge": false
     },
     "hubs": {

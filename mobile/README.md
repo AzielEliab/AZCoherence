@@ -24,8 +24,8 @@ Xcode.
 ## Notes
 
 Receipts are PASS, FLAG, NEUTRALIZE, or REFUSE. Evidence must be provided.
-Confidence is not truth. AZ-CLCE and AKM-TRIAD-1.0 stay separate.
-Author: Aziel Eliab only.
+Advisory coherence review. Peer of AZ-CLCE. AKM-TRIAD-1.0 fabric
+neighbor — cite only. Confidence is not truth. Author: Aziel Eliab only.
 
 ## Desktop package (counted download)
 

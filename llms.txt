@@ -6,7 +6,7 @@ One-line: AZCoherence is Aziel Eliab software: alternate-triad double-check to n
 Spec: AZC-WP-0.1 / AZC-0.1
 Class: Plain
 Slug: azcoherence
-Placement: scoring-review (Softwares tab placement, not a domain door)
+Placement: scoring-review (Softwares tab)
 Door: FragGate is THE single door
 GitHub: https://github.com/AzielEliab/AZCoherence
 Homepage: https://azcoherence-download-tracker.vibelock.workers.dev/
@@ -41,7 +41,7 @@ Worker PROXY: GET|POST https://azcoherence-download-tracker.vibelock.workers.dev
 AZ-CLCE / azclce — peer scorer, separate product. R/D/P inconsistency, not intent.
   https://github.com/AzielEliab/az-clce
   https://azclce-download-tracker.vibelock.workers.dev/
-AKM-TRIAD-1.0 — fabric neighbor only. LIVE memory on aziel-runtime. Not a Softwares slug. Posterior ≠ truth. Do not merge.
+AKM-TRIAD-1.0 — fabric neighbor only. LIVE memory on aziel-runtime. Posterior is advisory. Do not merge.
 AZInterface — custodial operating environment (AIH page cycles / pair custody).
   https://github.com/AzielEliab/azinterface
   https://azinterface-download-tracker.vibelock.workers.dev/
@@ -63,7 +63,7 @@ Suite mesh: GET /v1/mesh PROXY to aziel-runtime. Default OFF. GET never enables.
 
 Works with ChatGPT (GPT Actions / OpenAI), Grok (xAI), Venice, Claude (Anthropic), Cursor (MCP), Glama (MCP), Perplexity, Microsoft Copilot / Bing, Google Gemini / Vertex, Mistral, Meta AI, Apple Intelligence surfaces, Amazon Q tooling, DuckAssist, You.com, Cohere, and other MCP/OpenAPI-capable assistants.
 
-Law: Confidence is not truth. Never invent evidence. Peer of AZ-CLCE, not merged. Not AKM-TRIAD.
+Law: Confidence is not truth. Never invent evidence. Peer of AZ-CLCE. AKM-TRIAD-1.0 fabric neighbor — cite only.
 License: Apache-2.0
 Forks: welcome and always allowed
 DOI: none invented; software deposit still needed.

@@ -43,7 +43,7 @@ surface.
 - aziel-runtime FragGate: `/v1/fraggate/list`, `/v1/fraggate/describe`,
   `/v1/fraggate/call`, `/v1/software`, `/mcp`
 - AZ-CLCE / `azclce` — peer scorer, separate product
-- AKM-TRIAD-1.0 — fabric neighbor only (cite; not a Softwares slug)
+- AKM-TRIAD-1.0 — fabric neighbor only (cite only)
 - AZInterface — custodial operating environment
 - Softwares hubs: azieleliab.com, azielcorpuslibrary.net, godlock.uk
 

@@ -12,8 +12,9 @@ const String lede =
     'Status on this phone: a check stays on the device.';
 
 const String about =
-    'Receipts are PASS, FLAG, NEUTRALIZE, or REFUSE. Evidence must be provided. '
-    'AZ-CLCE and AKM-TRIAD-1.0 stay separate. Author: Aziel Eliab.';
+    'Receipts are PASS, FLAG, NEUTRALIZE, or REFUSE. Never invent evidence. '
+    'Confidence is not truth. Peer of AZ-CLCE. AKM-TRIAD-1.0 fabric neighbor — cite only. '
+    'Advisory only. Author: Aziel Eliab.';
 
 const double kPassDelta = 0.08;
 const double kNeutralizeDelta = 0.25;

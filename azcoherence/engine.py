@@ -1,8 +1,8 @@
 """AZCoherence engine — primary triad vs alternate independent path.
 
 Receipts: PASS / FLAG / NEUTRALIZE / REFUSE.
-Never invent evidence. Confidence ≠ truth.
-Does not merge AZ-CLCE (inconsistency, not intent) or AKM-TRIAD-1.0 (LIVE fabric).
+Never invent evidence. Confidence is not truth.
+AZ-CLCE (inconsistency, not intent) and AKM-TRIAD-1.0 (LIVE fabric) stay separate — cite only.
 
 Author: Aziel Eliab only.
 """
@@ -53,8 +53,6 @@ HUBS = {
 HONEST = (
     "THIS IS: an advisory coherence reviewer (AZC-WP-0.1). Primary triad/claim+score "
     "versus an alternate independent path. Receipts are PASS / FLAG / NEUTRALIZE / REFUSE. "
-    "THIS IS NOT: AZ-CLCE (R/D/P inconsistency, not intent), not AKM-TRIAD-1.0 fabric memory, "
-    "not a truth verdict, not a citation inventor, not a history rewrite, not publish-as-truth. "
     "Confidence is not truth. Never invent evidence. Author Aziel Eliab only."
 )
 
@@ -271,7 +269,7 @@ def _receipt(
                 "merge": False,
             },
             "az_clce": {"slug": "azclce", "github": PEER_AZ_CLCE, "note": "Peer scorer. R/D/P inconsistency, not intent. Do not merge."},
-            "akm_triad": {"spec": PEER_AKM, "note": "LIVE fabric memory on aziel-runtime. Fabric neighbor — cite only. Not a Softwares slug. Do not merge."},
+            "akm_triad": {"spec": PEER_AKM, "note": "LIVE fabric memory on aziel-runtime. Fabric neighbor — cite only. Posterior is advisory. Do not merge."},
             "azinterface": {"slug": "azinterface", "github": PEER_AZINTERFACE, "note": "Custodial OE. Do not merge."},
             "hubs": dict(HUBS),
         },

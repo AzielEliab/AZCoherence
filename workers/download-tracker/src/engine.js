@@ -1,8 +1,8 @@
 /**
  * AZCoherence engine — primary triad vs alternate independent path.
  * Receipts: PASS / FLAG / NEUTRALIZE / REFUSE.
- * Never invent evidence. Confidence ≠ truth.
- * Does not merge AZ-CLCE or AKM-TRIAD-1.0.
+ * Never invent evidence. Confidence is not truth.
+ * AZ-CLCE and AKM-TRIAD-1.0 stay separate — cite only.
  * Author: Aziel Eliab only.
  */
 
@@ -57,7 +57,7 @@ export const HASH_FIELDS = Object.freeze([
 ]);
 
 export const HONEST =
-  "THIS IS: an advisory coherence reviewer (AZC-WP-0.1). Primary triad/claim+score versus an alternate independent path. Receipts are PASS / FLAG / NEUTRALIZE / REFUSE. THIS IS NOT: AZ-CLCE (R/D/P inconsistency, not intent), not AKM-TRIAD-1.0 fabric memory, not a truth verdict, not a citation inventor, not a history rewrite, not publish-as-truth. Confidence is not truth. Never invent evidence. Author Aziel Eliab only.";
+  "THIS IS: an advisory coherence reviewer (AZC-WP-0.1). Primary triad/claim+score versus an alternate independent path. Receipts are PASS / FLAG / NEUTRALIZE / REFUSE. Confidence is not truth. Never invent evidence. Author Aziel Eliab only.";
 
 export const PEERS = Object.freeze({
   aziel_runtime: {
@@ -67,7 +67,7 @@ export const PEERS = Object.freeze({
     merge: false,
   },
   az_clce: { slug: "azclce", github: "https://github.com/AzielEliab/az-clce", note: "Peer scorer. R/D/P inconsistency, not intent. Do not merge." },
-  akm_triad: { spec: "AKM-TRIAD-1.0", note: "LIVE fabric memory on aziel-runtime. Fabric neighbor — cite only. Not a Softwares slug. Do not merge." },
+  akm_triad: { spec: "AKM-TRIAD-1.0", note: "LIVE fabric memory on aziel-runtime. Fabric neighbor — cite only. Posterior is advisory. Do not merge." },
   azinterface: { slug: "azinterface", github: "https://github.com/AzielEliab/azinterface", note: "Custodial OE. Do not merge." },
   hubs: {
     azieleliab: "https://www.azieleliab.com/",

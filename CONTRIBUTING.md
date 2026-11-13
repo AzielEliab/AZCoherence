@@ -20,7 +20,7 @@ pytest is the dev extra. No network.
 
 ## Ground rules
 
-1. **Identity is Aziel Eliab only.** Do not credit other names. Aziel Elroi Eliab is an allowed SEO aka.
+1. **Identity is Aziel Eliab only.** Do not credit other names.
 2. **I1 Never invent evidence.** Citations must be operator-provided.
 3. **I2 Confidence is not truth.**
 4. **I3 Do not merge AZ-CLCE or AKM-TRIAD-1.0.**
@@ -32,7 +32,7 @@ pytest is the dev extra. No network.
     Never treat `fraggate/call` or `mesh/status` as a local op name.
     Suite mesh default OFF; QNM rollup live|locked|isolated; QNS-CD-1.0
     hub cite only (no public qnsd proxy); no Node Gate; no auto-heal;
-    not anonymity.
+    identity-bearing QNM mesh.
 9. New behavior needs a test that fails without the change.
 
 ## Where to change things
